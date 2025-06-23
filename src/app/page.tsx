@@ -5,7 +5,7 @@ import MainBody from "../components/mainBody.component";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100 text-gray-800">
-      <div>
+      <div className="w-full mb-auto mt-auto">
         <Header />
       </div>
       <div>
