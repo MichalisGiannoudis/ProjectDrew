@@ -14,7 +14,7 @@ export default function Footer() {
               <Devider />
             </div>
           </div>
-          <div className="flex gap-4"> 
+          <div className="flex gap-4 md:mb-2"> 
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
               <img className="w-9 h-9" src="/x-icon.png"/>
             </a>
@@ -28,15 +28,15 @@ export default function Footer() {
         </div>
         {/* Contact Info */}
         <div className="flex flex-col items-center md:items-center md:mt-3 justify-center md:justify-start">
-          <p className="text-2xl mb-3"> Contact Info </p>
+          <p className="text-2xl mb-3"> Contact </p>
           <div className="flex flex-col items-center md:items-start p-1">
-            <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2">
-              <img className="w-10 h-10" src="/email-icon.png"/>
-              <p className="flex items-center justify-center md:justify-start h-10">contact@example.com </p>
+            <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2 md:mb-2">
+              <img className="w-8 h-8" src="/email-icon.png"/>
+              <p className="flex items-center justify-center md:justify-start h-8">contact@example.com </p>
             </div>
             <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2">
-              <img className="w-10 h-10" src="/phone-icon.png"/>
-              <p className="flex items-center justify-center md:justify-start h-10">+123 456 7890 </p>
+              <img className="w-8 h-8" src="/phone-icon.png"/>
+              <p className="flex items-center justify-center md:justify-start h-8">69 123 456 78</p>
             </div>
           </div>
         </div>
@@ -46,17 +46,20 @@ export default function Footer() {
         {/* Address & Hours */}
         <div className="flex flex-col items-center md:items-center md:mt-3 justify-center md:justify-start">
           <div className="flex flex-col justify-center items-center">
-            <p className="text-2xl mb-3"> Office Info </p>
-            <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2">
-              <img className="w-9 h-9" src="location-icon.png"/>
-              <p className="flex items-center justify-center h-10"> Kountouriotou 23, Rethyno, Greece </p>
+            <p className="text-2xl mb-3"> Office </p>
+            <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2 md:mb-1">
+              <img className="w-8 h-8" src="location-icon.png"/>
+              <p className="flex items-center justify-center h-9"> Kountouriotou 23, Rethyno, Greece </p>
             </div>
-            <p className="text-lg"> Monday - Friday</p>
+            <p className="font-semibold"> Monday - Friday</p>
             <p> 9:00 AM - 5:00 PM </p>
           </div>
         </div>
       </div>
-      <div className="mt-5">
+      <div className="block md:hidden mt-3">
+          <Devider />
+      </div>
+      <div className="flex flex-col justify-center items-center h-10 md:bg-gray-800">
         <p>Copyright &copy; {new Date().getFullYear()} Andrew Dranakis</p>
       </div>
     </footer>
