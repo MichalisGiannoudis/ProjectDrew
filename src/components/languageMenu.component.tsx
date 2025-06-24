@@ -19,15 +19,14 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
       <div className='hidden md:flex'>
         <button
           type="button"
-          onClick={() => { setOpenMenu(!openMenu) }}
+          onClick={() => setOpenMenu(!openMenu)}
           className="inline-flex items-center font-medium px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
+        >          
           <img src={languageState === Language.Greek ? '/greece-flag.png' : '/american-flag.png'} className="w-5 h-5 rounded-full me-3" alt="Greek Flag"/>
           {languageState === Language.Greek ? 'Ελληνικά (GR)' : 'English (US)'}
         </button>
-
-        {!openMenu && (
-          <div className="absolute right-0 mt-16 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700">
+        {openMenu && (
+          <div className="absolute right-0 mt-16 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 z-50">
             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
               <li>
                 <button onClick={() => toggleLanguage(Language.English)} className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
@@ -45,17 +44,16 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
         )}
         </div>
         
-        <div  className='flex md:hidden'>
+        <div className='flex md:hidden'>
           <button
             type="button"
             onClick={() => setOpenMenu(!openMenu)}
             className="inline-flex items-center font-medium px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-            <img src={languageState === Language.Greek ? '/greece-flag.png' : '/american-flag.png'} className="w-5 h-5 rounded-full me-3" alt="Greek Flag"/>
-          </button>
-
-          {!openMenu && (
-            <div className="absolute right-0 mt-16 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700">
+          <img src={languageState === Language.Greek ? '/greece-flag.png' : '/american-flag.png'} className="w-5 h-5 rounded-full me-3" alt="Greek Flag"/>
+          </button>          
+          {openMenu && (
+            <div className="absolute right-0 mt-16 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 z-50">
               <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
                 <li>
                   <button onClick={() => toggleLanguage(Language.English)} className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">

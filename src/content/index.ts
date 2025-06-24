@@ -10,4 +10,4 @@ export const contentMap: ContentMap = {
     'footerGR': FooterContentGR,
     'mainPageEN': MainPageContentEN,
     'mainPageGR': MainPageContentGR
-};
+}

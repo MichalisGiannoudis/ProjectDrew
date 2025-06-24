@@ -1,17 +1,13 @@
 export const MainPageContentEN = {
-    pageId: 'houses-page',
-    founderLabel: 'Founder',
-    houseSearchLabel: 'Search houses...',
-    houseSearchEmptyResultsLabel: 'No results found, please try again.',
-    houseSearchErrorLabel: 'Error',
-    houseTraitSearchLabel: 'Search houses traits...',
+    upperMotoLabel: 'THE RIGHT LAWYER',
+    lowerMotoLabel: 'MAKES ALL THE DIFFERENCE',
+    nameLabel: 'Andreas N. Drandakis',
+    progessionLabel: 'Licensed Attorney | Specializing in Corporate & Civil Law'
 }
 
 export const MainPageContentGR = {
-    pageId: 'houses-page',
-    founderLabel: 'Founder',
-    houseSearchLabel: 'Search houses...',
-    houseSearchEmptyResultsLabel: 'No results found, please try again.',
-    houseSearchErrorLabel: 'Error',
-    houseTraitSearchLabel: 'Search houses traits...',
+    upperMotoLabel: 'Ο ΣΩΣΤΟΣ ΔΙΚΗΓΟΡΟΣ',
+    lowerMotoLabel: ' ΚΑΝΕΙ ΤΗ ΔΙΑΦΟΡΑ',
+    nameLabel: 'Ανδρέας Ν. Δρανδάκης',
+    progessionLabel: 'Δικηγόρος | Ειδικός στο Εταιρικό & Πολιτικό Δίκαιο'
 }

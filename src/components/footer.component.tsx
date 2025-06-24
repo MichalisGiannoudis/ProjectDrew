@@ -12,7 +12,7 @@ export default function Footer() {
   const { nameLabel, progessionLabel, contactLabel, officeLabel, officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
 
   return (
-    <footer className="mt-8 text-center bg-gray-900 text-white w-full h-auto">
+    <footer className="text-center bg-gray-900 text-white w-full h-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2">
         {/* Social Media & Logo */}
         <div className="flex flex-col justify-center items-center">

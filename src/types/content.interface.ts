@@ -15,12 +15,10 @@ export interface FooterContent{
 }
 
 export interface MainPageContent{
-    pageId: string;
-    founderLabel: string;
-    houseSearchLabel: string;
-    houseSearchEmptyResultsLabel: string;
-    houseSearchErrorLabel: string;
-    houseTraitSearchLabel: string;
+    upperMotoLabel: string,
+    lowerMotoLabel: string,
+    nameLabel: string,
+    progessionLabel: string,
 }
 
 export interface ContentMap {

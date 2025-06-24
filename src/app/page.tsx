@@ -10,7 +10,7 @@ export default function Home() {
       <div className="w-full mb-auto mt-auto">
         <Header />
       </div>
-      <div>
+      <div className="w-full">
         <MainBody />
       </div>
       <div className="w-full mt-auto">
