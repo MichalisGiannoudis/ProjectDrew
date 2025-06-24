@@ -1,10 +1,16 @@
 'use client';
 import { useState } from 'react'
 import { LanguageMenu } from './languageMenu.component';
+import { useContent } from '@/hooks/useContent';
+import { useThemeStore } from '@/store/theme.store';
+import { HeaderContent } from '@/types/content.interface';
+import { Language } from '@/types/language.interface';
 
 export default function Header() {
 
+  const languageState = useThemeStore(state => state.language);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const { homeOption, servicesOption, contactOption } = useContent(languageState === Language.Greek ? 'headerGR' : 'headerEN') as HeaderContent;
 
   return (
     <div className="grid grid-cols-[80%_20%] md:grid-cols-[35%_25%_15%_25%] lg:grid-cols-[50%_20%_15%_15%] text-center bg-gray-900 w-full h-auto">
@@ -13,17 +19,17 @@ export default function Header() {
       </div>
       <div className="hidden md:grid grid-cols-3 justify-items-center items-center gap-2">
         <div className="cursor-pointer group">
-          <p className="text-white text-lg relative overflow-hidden">Home
+          <p className="text-white text-lg relative overflow-hidden">{homeOption}
             <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
           </p>
         </div>
         <div className="cursor-pointer group">
-          <p className="text-white text-lg relative overflow-hidden">Servises
+          <p className="text-white text-lg relative overflow-hidden">{servicesOption}
             <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
           </p>
         </div>
         <div className="cursor-pointer group">
-          <p className="text-white text-lg relative overflow-hidden">Contact
+          <p className="text-white text-lg relative overflow-hidden">{contactOption}
             <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
           </p>
         </div>
@@ -39,11 +45,12 @@ export default function Header() {
         <img src={openMenu ? "/menu-close.png" : "/menu-open.png"} className={`w-8 h-8 transition-transform duration-300 ${openMenu ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpenMenu(!openMenu)}/>
       </div>
       {openMenu && 
-      <div className="absolute top-16 right-0 bg-gray-800 text-white w-48 p-4 rounded shadow-lg">
+      <div className="absolute mt-21 mr-5 right-0 bg-gray-800 text-white w-48 p-4 rounded-md shadow-lg">
         <div>
           <a href="/" className="block px-4 py-2 hover:bg-gray-700">Home</a>
           <a href="/" className="block px-4 py-2 hover:bg-gray-700">Services</a>
           <a href="/" className="block px-4 py-2 hover:bg-gray-700">Contact</a>
+          <></>
         </div>
       </div>}
     </div>
