@@ -1,17 +1,19 @@
 export const FooterContentEN = {
-    pageId: 'houses-page',
-    founderLabel: 'Founder',
-    houseSearchLabel: 'Search houses...',
-    houseSearchEmptyResultsLabel: 'No results found, please try again.',
-    houseSearchErrorLabel: 'Error',
-    houseTraitSearchLabel: 'Search houses traits...',
+    nameLabel: 'Andreas N. Drandakis',
+    progessionLabel: 'Licensed Attorney | Specializing in Corporate & Civil Law',
+    contactLabel: 'Contact',
+    officeLabel: 'Office',
+    officeAddress: 'Kountouriotou 23, Rethyno, Greece',
+    daysLabel: 'Monday - Friday',
+    hoursLabel: '9:00 AM - 5:00 PM',
 }
 
 export const FooterContentGR = {
-    pageId: 'houses-page',
-    founderLabel: 'Founder',
-    houseSearchLabel: 'Search houses...',
-    houseSearchEmptyResultsLabel: 'No results found, please try again.',
-    houseSearchErrorLabel: 'Error',
-    houseTraitSearchLabel: 'Search houses traits...',
+    nameLabel: 'Αδρέας Ν. Δρανδάκης',
+    progessionLabel: 'Δικηγόρος | Ειδικός στο Εταιρικό & Αστικό Δίκαιο',
+    contactLabel: 'Επικοινωνία',
+    officeLabel: 'Γραφείο',
+    officeAddress: 'Κουντουριώτου 23, Ρέθυμνο, Ελλάδα',
+    daysLabel: 'Δευτέρα - Παρασκευή',
+    hoursLabel: '9:00 π.μ. - 5:00 μ.μ.',
 }

@@ -5,12 +5,13 @@ export interface HeaderContent {
 }
 
 export interface FooterContent{
-    pageId: string;
-    founderLabel: string;
-    houseSearchLabel: string;
-    houseSearchEmptyResultsLabel: string;
-    houseSearchErrorLabel: string;
-    houseTraitSearchLabel: string;
+    nameLabel: string;
+    progessionLabel: string;
+    contactLabel: string;
+    officeLabel: string;
+    officeAddress: string;
+    daysLabel: string;
+    hoursLabel: string;
 }
 
 export interface MainPageContent{

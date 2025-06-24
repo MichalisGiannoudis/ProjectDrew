@@ -1,6 +1,16 @@
+'use client'
+
 import { Devider } from "./devider.component";
+import { useContent } from "@/hooks/useContent";
+import { Language } from "@/types/language.interface";
+import { useThemeStore } from "@/store/theme.store";
+import { FooterContent } from "@/types/content.interface";
 
 export default function Footer() {
+
+  const languageState = useThemeStore(state => state.language);
+  const { nameLabel, progessionLabel, contactLabel, officeLabel, officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
+
   return (
     <footer className="mt-8 text-center bg-gray-900 text-white w-full h-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2">
@@ -8,8 +18,8 @@ export default function Footer() {
         <div className="flex flex-col justify-center items-center">
           <div>
             <img src="/logo-cropped.png" className="w-100 h-auto mb-5"/>
-            <p> Andreas N. Drandakis </p>
-            <p> Licensed Attorney | Specializing in Corporate & Civil Law </p>
+            <p> {nameLabel} </p>
+            <p> {progessionLabel} </p>
             <div className="mb-3 mt-3">
               <Devider />
             </div>
@@ -28,7 +38,7 @@ export default function Footer() {
         </div>
         {/* Contact Info */}
         <div className="flex flex-col items-center md:items-center md:mt-3 justify-center md:justify-start">
-          <p className="text-2xl mb-3"> Contact </p>
+          <p className="text-2xl mb-3"> {contactLabel} </p>
           <div className="flex flex-col items-center md:items-start p-1">
             <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2 md:mb-2">
               <img className="w-8 h-8" src="/email-icon.png"/>
@@ -46,13 +56,13 @@ export default function Footer() {
         {/* Address & Hours */}
         <div className="flex flex-col items-center md:items-center md:mt-3 justify-center md:justify-start">
           <div className="flex flex-col justify-center items-center">
-            <p className="text-2xl mb-3"> Office </p>
+            <p className="text-2xl mb-3"> {officeLabel} </p>
             <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2 md:mb-1">
               <img className="w-8 h-8" src="location-icon.png"/>
-              <p className="flex items-center justify-center h-9"> Kountouriotou 23, Rethyno, Greece </p>
+              <p className="flex items-center justify-center h-9"> {officeAddress} </p>
             </div>
-            <p className="font-semibold"> Monday - Friday</p>
-            <p> 9:00 AM - 5:00 PM </p>
+            <p className="font-semibold"> {daysLabel} </p>
+            <p> {hoursLabel} </p>
           </div>
         </div>
       </div>

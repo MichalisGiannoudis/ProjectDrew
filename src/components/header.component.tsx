@@ -47,9 +47,9 @@ export default function Header() {
       {openMenu && 
       <div className="absolute mt-21 mr-5 right-0 bg-gray-800 text-white w-48 p-4 rounded-md shadow-lg">
         <div>
-          <a href="/" className="block px-4 py-2 hover:bg-gray-700">Home</a>
-          <a href="/" className="block px-4 py-2 hover:bg-gray-700">Services</a>
-          <a href="/" className="block px-4 py-2 hover:bg-gray-700">Contact</a>
+          <a href="/" className="block px-4 py-2 hover:bg-gray-700">{homeOption}</a>
+          <a href="/" className="block px-4 py-2 hover:bg-gray-700">{servicesOption}</a>
+          <a href="/" className="block px-4 py-2 hover:bg-gray-700">{contactOption}</a>
           <></>
         </div>
       </div>}
