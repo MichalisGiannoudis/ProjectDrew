@@ -13,7 +13,7 @@ export default function Header() {
   const { bioOption, servicesOption, contactOption } = useContent(languageState === Language.Greek ? 'headerGR' : 'headerEN') as HeaderContent;
 
   const scrollTo = (value: string) => {
-    const section = document.getElementById('bio-section');
+    const section = document.getElementById(value);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
