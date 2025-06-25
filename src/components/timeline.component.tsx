@@ -15,7 +15,7 @@ export const TimeLine = () => {
       <div className="absolute top-1/2 left-4 right-4 h-1 bg-gradient-to-r from-white to-gray-400 rounded-full transform -translate-y-1/2 z-10 animate-pulse"></div>
       <div className="relative flex z-20 h-96">
         {milestones.map((milestone, index) => (
-          <div key={milestone.yearLabel} className="relative flex-1 animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+          <div key={milestone.yearLabel} className="relative flex-1 animate-fade-in-up cursor-default" style={{ animationDelay: `${index * 200}ms` }}>
             <div className={
              `absolute left-1/2 transform -translate-x-1/2 w-[80%]
               ${index % 2 === 0 ? 'bottom-1/2 mb-6' : 'top-1/2 mt-6'}

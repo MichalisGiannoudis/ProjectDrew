@@ -4,28 +4,28 @@ export const MilestonesEN: MilestoneContent = {
     milestones: [
         {
             yearLabel: '2015',
-            titleLabel: "Foundation",
-            descriptionLabel: "Company established with a clear vision for innovation"
-        },
-        {
-            yearLabel: '2017',
-            titleLabel: "First Product",
-            descriptionLabel: "Launched our flagship product to market success"
+            titleLabel: "University",
+            descriptionLabel: "Accepted into Aristotle University of Thessaloniki, in the 3rd place among 300 students."
         },
         {
             yearLabel: '2019',
-            titleLabel: "Expansion",
-            descriptionLabel: "Expanded operations to international markets"
+            titleLabel: "University Graduation",
+            descriptionLabel: "Graduated from the Law School of Aristotle University of Thessaloniki, with cum laude honors."
+        },
+        {
+            yearLabel: '2020',
+            titleLabel: "Law Training",
+            descriptionLabel: "Fully trained in the legal profession, completing a rigorous training program with Pr. Konstantinos Koutoupis."
         },
         {
             yearLabel: '2021',
-            titleLabel: "Innovation",
-            descriptionLabel: "Introduced breakthrough technology solutions"
+            titleLabel: "Master's Degree",
+            descriptionLabel: "Got accepted into the prestigious Master's program in Civil Law and at the University of Munich, Germany."
         },
         {
             yearLabel: '2023',
-            titleLabel: "Growth",
-            descriptionLabel: "Achieved significant milestones and partnerships"
+            titleLabel: "Early Career",
+            descriptionLabel: "Started my career as a legal advisor, specializing in civil law and intellectual property rights."
         }
     ]
 };
@@ -34,28 +34,28 @@ export const MilestonesGR: MilestoneContent = {
     milestones: [
         {
             yearLabel: '2015',
-            titleLabel: "Ίδρυση",
-            descriptionLabel: "Η εταιρεία ιδρύθηκε με σαφές όραμα για καινοτομία"
-        },
-        {
-            yearLabel: '2017',
-            titleLabel: "Πρώτο Προϊόν",
-            descriptionLabel: "Λανσάραμε το κυρίαρχο προϊόν μας με επιτυχία στην αγορά"
+            titleLabel: 'Πανεπιστήμιο',
+            descriptionLabel: "Εισαγωγή στο Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης, στην 3η θέση ανάμεσα σε 300 φοιτητές."
         },
         {
             yearLabel: '2019',
-            titleLabel: "Επέκταση",
-            descriptionLabel: "Επεκτάθηκαμε σε διεθνείς αγορές"
+            titleLabel: 'Αποφοίτηση Πανεπιστημίου',
+            descriptionLabel: 'Αποφοίτηση από τη Νομική Σχολή του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, με άριστα. Πρώτος της τάξης του 2015.'
+        },
+        {
+            yearLabel: '2020',
+            titleLabel: 'Εκπαίδευση Δικηγόρου',
+            descriptionLabel: 'Πλήρης εκπαίδευση στο επάγγελμα του δικηγόρου, ολοκληρώνοντας ένα πρόγραμμα εκπαίδευσης με τον Καθηγητή Κωνσταντίνο Κουτούπη.'
         },
         {
             yearLabel: '2021',
-            titleLabel: "Καινοτομία",
-            descriptionLabel: "Παρουσιάσαμε πρωτοποριακές τεχνολογικές λύσεις"
+            titleLabel: 'Μεταπτυχιακό',
+            descriptionLabel: 'Εισαγωγή στο μεταπτυχιακό πρόγραμμα Πολιτικού Δικαίου στο Πανεπιστήμιο του Μονάχου, Γερμανία.'
         },
         {
             yearLabel: '2023',
-            titleLabel: "Ανάπτυξη",
-            descriptionLabel: "Πετύχαμε σημαντικά ορόσημα και συνεργασίες"
+            titleLabel: 'Πρώιμη Καριέρα',
+            descriptionLabel: 'Έναρξη καριέρας ως νομικός σύμβουλος, με εξειδίκευση στο αστικό δίκαιο και τα δικαιώματα πνευματικής ιδιοκτησίας.'
         }
     ]
 };
