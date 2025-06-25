@@ -28,6 +28,14 @@ export interface MainPageContent{
     exp5Label: string,
 }
 
+export interface MilestoneContent {
+    milestones: {
+        yearLabel: string;
+        titleLabel: string;
+        descriptionLabel: string;
+    }[];
+}
+
 export interface ContentMap {
-    [key: string]: HeaderContent | FooterContent | MainPageContent;
+    [key: string]: HeaderContent | FooterContent | MainPageContent | MilestoneContent;
 } 

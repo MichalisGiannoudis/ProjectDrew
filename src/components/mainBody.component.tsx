@@ -5,6 +5,7 @@ import { useThemeStore } from "@/store/theme.store";
 import { MainPageContent } from "@/types/content.interface";
 import { Language } from "@/types/language.interface";
 import { Devider } from "./devider.component";
+import { TimeLine } from "./timeline.component";
 
 export default function MainBody() {  
   
@@ -53,7 +54,12 @@ export default function MainBody() {
             </div>
           </div>
           <Devider />
-          <div className="w-full flex flex-col items-center">
+          <TimeLine />
+        </div>
+      </div>
+
+      <div id="services-section" className="relative py-16 px-8 gap-12 overflow-hidden">
+        <div className="w-full flex flex-col items-center">
             <div className="grid gap-6 grid-cols-2 md:grid-cols-5 overflow-x-auto py-2">
               {[exp1Label, exp2Label, exp3Label, exp4Label, exp5Label].map((expertise, idx) => (
               <div key={idx} className="flex flex-col items-center min-w-[120px]">
@@ -66,8 +72,8 @@ export default function MainBody() {
               ))}
             </div>
           </div>
-        </div>
       </div>
+
 
       {/* Contact Section */}
       <div className="bg-gray-400">
