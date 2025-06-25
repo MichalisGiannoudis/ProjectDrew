@@ -15,8 +15,6 @@ export interface FooterContent{
 }
 
 export interface MainPageContent{
-    upperMotoLabel: string,
-    lowerMotoLabel: string,
     nameLabel: string,
     progessionLabel: string,
     bioHeaderLabel: string,

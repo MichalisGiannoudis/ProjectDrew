@@ -10,7 +10,7 @@ import { TimeLine } from "./timeline.component";
 export default function MainBody() {  
   
   const languageState = useThemeStore(state => state.language);
-  const {   upperMotoLabel, lowerMotoLabel, nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel
+  const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel
           , exp1Label, exp2Label, exp3Label, exp4Label, exp5Label
         } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
   
@@ -23,12 +23,10 @@ export default function MainBody() {
             className="w-screen h-full object-cover blur-xs"
           />
             <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white">
-              <hr className="w-1/4 border-t border-white mb-4" />
-              {languageState === Language.English && <p className="text-5xl font-semibold tracking-wide mb-2">{upperMotoLabel}</p>}
-              {languageState === Language.English && <p className="text-xl font-semibold mb-4">{lowerMotoLabel}</p>}
+              <hr className="w-1/2 md:w-1/6 border-t border-white mb-4" />
               <p className="text-xl text-center">{nameLabel}</p>
               <p className="text-lg text-center">{progessionLabel}</p>
-              <hr className="w-1/4 border-t border-white mt-4" />
+              <hr className="w-1/2 md:w-1/6 border-t border-white mt-4" />
             </div>
         </div>
       </div>      
