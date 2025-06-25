@@ -52,11 +52,13 @@ export default function MainBody() {
             </div>
           </div>
           <div className="w-full flex flex-col items-center">
-            <div className="flex gap-6 overflow-x-auto py-2">
+            <div className="grid gap-6 grid-cols-2 md:grid-cols-5 overflow-x-auto py-2">
               {[exp1Label, exp2Label, exp3Label, exp4Label, exp5Label].map((expertise, idx) => (
               <div key={idx} className="flex flex-col items-center min-w-[120px]">
-                <div className="w-30 h-30 rounded-full border-white/30 border-1 flex items-center justify-center text-center text-white text-base font-medium relative overflow-hidden backdrop-blur-sm bg-gradient-to-br from-blue-500/20 to-purple-600/20 shadow-lg hover:from-blue-500/30 hover:to-purple-600/30 transition-all duration-300 cursor-pointer">
-                  <span> {expertise}</span>
+                <div className="w-32 h-32 rounded-full border-2 border-gray-200 flex items-center justify-center text-center text-white text-sm font-medium relative overflow-hidden bg-gray-600/80 hover:bg-white/20 transition-all duration-300 cursor-pointer group">
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-base text-center leading-tight px-2">{expertise}</span>
+                  </div>
                 </div>
               </div>
               ))}
