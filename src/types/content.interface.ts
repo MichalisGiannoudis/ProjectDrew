@@ -19,6 +19,13 @@ export interface MainPageContent{
     lowerMotoLabel: string,
     nameLabel: string,
     progessionLabel: string,
+    bioHeaderLabel: string,
+    bioBodyLabel: string
+    exp1Label: string,
+    exp2Label: string,
+    exp3Label: string,
+    exp4Label: string,
+    exp5Label: string,
 }
 
 export interface ContentMap {

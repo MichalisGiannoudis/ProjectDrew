@@ -8,7 +8,9 @@ import { Language } from "@/types/language.interface";
 export default function MainBody() {  
   
   const languageState = useThemeStore(state => state.language);
-  const { upperMotoLabel, lowerMotoLabel, nameLabel, progessionLabel} = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
+  const {   upperMotoLabel, lowerMotoLabel, nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel
+          , exp1Label, exp2Label, exp3Label, exp4Label, exp5Label
+        } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
   
   return (
     <div className="grid grid-cols-1">
@@ -27,18 +29,40 @@ export default function MainBody() {
               <hr className="w-1/4 border-t border-white mt-4" />
             </div>
         </div>
-      </div>
-
-      {/* Services Section */}
-      <div className="bg-gray-600">
-        <h2 className="text-2xl font-semibold mb-4">Services</h2>
-        <ul className="list-disc list-inside">
-          <li>Corporate Law Consultations</li>
-          <li>Civil Litigation & Dispute Resolution</li>
-          <li>Contract Drafting & Review</li>
-          <li>Legal Compliance & Advisory</li>
-          <li>Estate Planning & Probate</li>
-        </ul>
+      </div>      
+      
+      {/* Bio & Expertise Section */}
+      <div className="relative py-16 px-8 gap-12 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
+        </div>
+        <div className="relative z-10 grid grid-cols-1 items-center justify-center gap-12">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
+            <div className="w-60 h-60 rounded-full overflow-hidden flex-shrink-0  shadow-2xl">
+              <img src="/profile.jpg" className="w-full h-full object-cover"/>
+            </div>
+            <div className="text-left max-w-2xl">
+              <p className="text-6xl font-bold mb-4 text-white drop-shadow-lg">{bioHeaderLabel}</p>
+              <div className="mb-6">
+                <p className="text-gray-200 leading-relaxed text-lg">{bioBodyLabel}</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-full flex flex-col items-center">
+            <div className="flex gap-6 overflow-x-auto py-2">
+              {[exp1Label, exp2Label, exp3Label, exp4Label, exp5Label].map((expertise, idx) => (
+              <div key={idx} className="flex flex-col items-center min-w-[120px]">
+                <div className="w-30 h-30 rounded-full border-white/30 border-1 flex items-center justify-center text-center text-white text-base font-medium relative overflow-hidden backdrop-blur-sm bg-gradient-to-br from-blue-500/20 to-purple-600/20 shadow-lg hover:from-blue-500/30 hover:to-purple-600/30 transition-all duration-300 cursor-pointer">
+                  <span> {expertise}</span>
+                </div>
+              </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Contact Section */}
