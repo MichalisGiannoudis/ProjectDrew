@@ -4,6 +4,7 @@ import { useContent } from "@/hooks/useContent";
 import { useThemeStore } from "@/store/theme.store";
 import { MainPageContent } from "@/types/content.interface";
 import { Language } from "@/types/language.interface";
+import { Devider } from "./devider.component";
 
 export default function MainBody() {  
   
@@ -32,7 +33,7 @@ export default function MainBody() {
       </div>      
       
       {/* Bio & Expertise Section */}
-      <div className="relative py-16 px-8 gap-12 overflow-hidden">
+      <div id="bio-section" className="relative py-16 px-8 gap-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -51,6 +52,7 @@ export default function MainBody() {
               </div>
             </div>
           </div>
+          <Devider />
           <div className="w-full flex flex-col items-center">
             <div className="grid gap-6 grid-cols-2 md:grid-cols-5 overflow-x-auto py-2">
               {[exp1Label, exp2Label, exp3Label, exp4Label, exp5Label].map((expertise, idx) => (

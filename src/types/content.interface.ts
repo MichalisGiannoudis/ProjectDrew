@@ -1,5 +1,5 @@
 export interface HeaderContent {
-    homeOption: string;
+    bioOption: string;
     servicesOption: string;
     contactOption: string;
 }

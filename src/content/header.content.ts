@@ -1,11 +1,11 @@
 export const HeaderContentEN = {
-    homeOption: 'Home',
+    bioOption: 'About Me',
     servicesOption: 'Services',
     contactOption: 'Contact',
 }
 
 export const HeaderContentGR = {
-    homeOption: 'Aρχική',
+    bioOption: 'Σχετικά',
     servicesOption: 'Υπηρεσίες',
     contactOption: 'Επικοινωνία',
 }

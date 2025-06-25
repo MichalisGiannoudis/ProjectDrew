@@ -10,7 +10,15 @@ export default function Header() {
 
   const languageState = useThemeStore(state => state.language);
   const [ openMenu, setOpenMenu ] = useState<boolean>(false);
-  const { homeOption, servicesOption, contactOption } = useContent(languageState === Language.Greek ? 'headerGR' : 'headerEN') as HeaderContent;
+  const { bioOption, servicesOption, contactOption } = useContent(languageState === Language.Greek ? 'headerGR' : 'headerEN') as HeaderContent;
+
+  const scrollTo = (value: string) => {
+    const section = document.getElementById('bio-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
 
   return (
     <div className="grid grid-cols-[72%_13%_15%] md:grid-cols-[35%_25%_15%_25%] lg:grid-cols-[50%_20%_15%_15%] text-center bg-gray-900 w-full h-auto">
@@ -19,7 +27,7 @@ export default function Header() {
       </div>
       <div className="hidden md:grid grid-cols-3 justify-items-center items-center gap-2">
         <div className="cursor-pointer group">
-          <p className="text-white text-lg relative overflow-hidden">{homeOption}
+          <p onClick={() => scrollTo('bio-section')} className="text-white text-lg relative overflow-hidden">{bioOption}
             <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
           </p>
         </div>
@@ -47,7 +55,7 @@ export default function Header() {
       {openMenu && 
       <div className="absolute mt-22 mr-5 right-0 bg-gray-700 text-white w-48 p-4 rounded-md shadow-lg md:hidden">
         <div>
-          <a href="/" className="block px-4 py-2 hover:bg-gray-700">{homeOption}</a>
+          <a href="/" className="block px-4 py-2 hover:bg-gray-700">{bioOption}</a>
           <a href="/" className="block px-4 py-2 hover:bg-gray-700">{servicesOption}</a>
           <a href="/" className="block px-4 py-2 hover:bg-gray-700">{contactOption}</a>
           <></>
