@@ -29,13 +29,13 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
           <div className="absolute right-0 mt-16 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 z-50">
             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
               <li>
-                <button onClick={() => toggleLanguage(Language.English)} className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                <button onClick={() => { toggleLanguage(Language.English); setOpenMenu(false); }} className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
                   {Language.English}
                 </button>
               </li>
 
               <li>
-                <button onClick={() => toggleLanguage(Language.Greek)} className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                <button onClick={() => { toggleLanguage(Language.Greek); setOpenMenu(false); }}className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
                   {Language.Greek}
                 </button>
               </li>
