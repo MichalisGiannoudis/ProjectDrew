@@ -49,7 +49,7 @@ export default function Header() {
           </p>
         </div>
         <div className="cursor-pointer group">
-          <p className="text-white text-lg relative overflow-hidden">{contactOption}
+          <p onClick={() => scrollTo('contact-section')}className="text-white text-lg relative overflow-hidden">{contactOption}
             <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
           </p>
         </div>

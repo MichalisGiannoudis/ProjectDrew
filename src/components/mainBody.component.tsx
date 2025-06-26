@@ -10,9 +10,11 @@ import { TimeLine } from "./timeline.component";
 export default function MainBody() {  
   
   const languageState = useThemeStore(state => state.language);
-  const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel
-          , servicesLabel, service1Label, service2Label, service3Label, service4Label,
-          service1Body, service2Body, service3Body, service4Body
+  const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel, servicesLabel
+          , service1Label, service2Label, service3Label, service4Label, service1Body
+          , service2Body, service3Body, service4Body, contactMeLabel, contactNameLabel
+          , contactNamePlaceholder, contactEmailLabel, contactEmailPlaceholder 
+          , contactMessageLabel, contactMessagePlaceholder
         } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
   
   return (
@@ -92,16 +94,49 @@ export default function MainBody() {
       </div>
 
       {/* Contact Section */}
-      <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900">
-        <h2 className="text-2xl font-semibold">Contact</h2>
-        <p>Email: <a href="mailto:contact@example.com" className="text-blue-500 hover:underline">contact@example.com</a></p>
-        <p>Phone: <a href="tel:+1234567890" className="text-blue-500 hover:underline">+123 456 7890</a></p>
-        <p>Address: Kountouriotou 23, Rethymno, Greece</p>
-        <p>Office Hours:</p>
-        <ul className="list-inside">
-          <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
-          <li>Sat–Sun: Closed</li>
-        </ul>
+      <div id="contact-section" className="grid grid-cols-1 md:grid-cols-[60%_40%] justify-items-center bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900">
+        
+        <div className="pt-10 pb-10 w-[80%] md:w-[60%]">
+            <h2 className="text-2xl text-white font-semibold mb-6">{contactMeLabel}</h2>
+            <form className="flex flex-col gap-4 bg-white/90 bg-opacity-70 p-6 rounded-lg shadow-lg"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const formData = new FormData(form);
+                const name = formData.get("name") as string;
+                const email = formData.get("email") as string;
+                const message = formData.get("message") as string;
+
+                // Replace with your email sending logic (API, service, etc.)
+                // For demonstration, just alert
+                alert(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+                form.reset();
+              }}
+              >
+              <label className="text-gray-800 font-semibold">{contactNameLabel}
+                <input type="text" name="name" required className="mt-1 font-medium block w-full rounded-md border-gray-300 shadow-md focus:border-blue-500 focus:ring-blue-500 p-2" placeholder={contactNamePlaceholder}/>
+              </label>
+              <label className="text-gray-800 font-semibold">{contactEmailLabel}
+                <input type="email" name="email" required className="mt-1 font-medium block w-full rounded-md border-gray-300 shadow-md focus:border-blue-500 focus:ring-blue-500 p-2" placeholder={contactEmailPlaceholder}/>
+              </label>
+              <label className="text-gray-800 font-semibold">{contactMessageLabel}
+                <textarea name="message" required rows={4} className="mt-1 font-medium block w-full rounded-md border-gray-300 shadow-md focus:border-blue-500 focus:ring-blue-500 p-2" placeholder={contactMessagePlaceholder}/>
+              </label>
+              <button type="submit" className="mt-2 bg-gray-800 hover:bg-white/90 hover:text-gray-800 text-white/90 font-semibold py-2 px-4 rounded transition">Send</button>
+            </form>
+        </div> 
+        
+        <div className="pt-10 pb-10">
+          <h2 className="text-2xl text-white font-semibold">Contact</h2>
+          <p>Email: <a href="mailto:contact@example.com" className="text-blue-500 hover:underline">contact@example.com</a></p>
+          <p>Phone: <a href="tel:+1234567890" className="text-blue-500 hover:underline">+123 456 7890</a></p>
+          <p>Address: Kountouriotou 23, Rethymno, Greece</p>
+          <p>Office Hours:</p>
+          <ul className="list-inside">
+            <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
+            <li>Sat–Sun: Closed</li>
+          </ul>
+        </div> 
       </div>
 
     </div>

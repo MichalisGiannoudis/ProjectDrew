@@ -12,6 +12,13 @@ export const MainPageContentEN = {
     service2Body: 'Civil litigation involves resolving disputes between individuals or organizations through the court system. It encompasses a wide range of matters, including contract disputes, property issues, and claims for damages. The goal is to achieve a fair resolution for all parties involved, either through negotiation, settlement, or trial.',
     service3Body: 'Legal advisory services provide clients with expert guidance on a variety of legal matters, helping them navigate complex regulations and make informed decisions. These services include risk assessment, compliance advice, and strategic planning to ensure that clients’ interests are protected and their objectives are achieved.',
     service4Body: 'Contract drafting and review ensures that agreements are clear, enforceable, and aligned with clients’ interests. This service involves preparing new contracts, analyzing existing ones for potential risks or ambiguities, and advising on necessary revisions to protect clients’ rights and minimize future disputes.',
+    contactMeLabel: 'Contact Me',
+    contactNameLabel: 'Name',
+    contactNamePlaceholder: 'John Doe',
+    contactEmailLabel: 'Email',
+    contactEmailPlaceholder: 'johndoe@gmail.com',
+    contactMessageLabel: 'Message',
+    contactMessagePlaceholder: 'I contant you, for ....',
 }
 
 export const MainPageContentGR = {
@@ -28,4 +35,11 @@ export const MainPageContentGR = {
     service2Body: 'Η πολιτική δικαστική διαμάχη περιλαμβάνει την επίλυση διαφορών μεταξύ ατόμων ή οργανισμών μέσω του δικαστικού συστήματος. Περιλαμβάνει ένα ευρύ φάσμα θεμάτων, όπως διαφορές συμβολαίων, ζητήματα ιδιοκτησίας και αξιώσεις αποζημίωσης. Στόχος είναι η επίτευξη δίκαιης λύσης για όλα τα εμπλεκόμενα μέρη, είτε μέσω διαπραγμάτευσης, συμβιβασμού είτε δίκης.',
     service3Body: 'Νομικές συμβουλευτικές υπηρεσίες παρέχουν στους πελάτες ειδική καθοδήγηση σε διάφορα νομικά ζητήματα, βοηθώντας τους να πλοηγηθούν σε περίπλοκους κανονισμούς και να λάβουν ενημερωμένες αποφάσεις. Αυτές οι υπηρεσίες περιλαμβάνουν εκτίμηση κινδύνου, συμβουλές συμμόρφωσης και στρατηγικό σχεδιασμό για να διασφαλιστεί ότι τα συμφέροντα των πελατών προστατεύονται και οι στόχοι τους επιτυγχάνονται.',
     service4Body: 'Η σύνταξη και ανασκόπηση συμβάσεων διασφαλίζει ότι οι συμφωνίες είναι σαφείς, εκτελεστές και ευθυγραμμισμένες με τα συμφέροντα των πελατών. Αυτή η υπηρεσία περιλαμβάνει την προετοιμασία νέων συμβολαίων, την ανάλυση υφιστάμενων για πιθανούς κινδύνους ή ασάφειες και τη συμβουλή σχετικά με τις απαραίτητες τροποποιήσεις για την προστασία των δικαιωμάτων των πελατών και τη μείωση μελλοντικών διαφορών.',
+    contactMeLabel: 'Επικοινωνήστε μαζί μου',
+    contactNameLabel: 'Όνομα',
+    contactNamePlaceholder: 'Γιάννης Γιαννάκης',
+    contactEmailLabel: 'Ηλεκτρονικό Ταχυδρομείο',
+    contactEmailPlaceholder: 'johndoe@gmail.com',
+    contactMessageLabel: 'Μήνυμα',
+    contactMessagePlaceholder: 'Επικοινωνώ μαζί σας, για ....',
 }
