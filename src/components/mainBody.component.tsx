@@ -152,19 +152,42 @@ export default function MainBody() {
             </form>
         </div> 
         
-        <div className="pt-10 pb-10">
-          <h2 className="text-2xl text-white font-semibold">Contact</h2>
-          <p>Email: <a href="mailto:contact@example.com" className="text-blue-500 hover:underline">contact@example.com</a></p>
-          <p>Phone: <a href="tel:+1234567890" className="text-blue-500 hover:underline">+123 456 7890</a></p>
-          <p>Address: Kountouriotou 23, Rethymno, Greece</p>
-          <p>Office Hours:</p>
-          <ul className="list-inside">
-            <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
-            <li>Sat–Sun: Closed</li>
-          </ul>
-        </div> 
+        <div className="pt-10 pb-10 flex justify-center items-center">
+          <div className="bg-white/90 bg-opacity-80 rounded-xl shadow-xl p-8 w-full max-w-xs md:max-w-sm text-slate-800">
+            <div className="flex flex-col gap-3 text-base">
+              <div className="flex items-center gap-2">
+                <img src="/email-small-icon.png" className="w-5 h-5 text-slate-800"/>
+                <a href="mailto:contact@example.com" className="hover:underline text-slate-800">contact@example.com</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <img src="/phone-icon-3.png" className="w-5 h-5 text-slate-800"/>
+                <a href="tel:+1234567890" className="hover:underline text-slate-800">69 123 456 78</a>
+              </div>
+              <div>
+                <div className="flex items-center w-full my-2">
+                  <hr className="flex-grow border-t border-slate-800" />
+                  <span className="mx-3 text-slate-800 font-base whitespace-nowrap cursor-default">or</span>
+                  <hr className="flex-grow border-t border-slate-800" />
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <img src="/office-icon.png" className="w-5 h-5 text-slate-800"/>
+                <span className="cursor-pointer hover:underline">Kountouriotou 23, <br/>Rethymno, Greece</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <img src="/time-icon.png" className="w-5 h-5 text-slate-800"/>
+                <div>
+                <div className="cursor-default">Office Hours:</div>
+                <ul className="list-inside text-sm">
+                  <li className="cursor-default">Mon–Fri: 9:00 AM – 5:00 PM</li>
+                  <li className="cursor-default">Sat–Sun: Closed</li>
+                </ul>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   );
 }
