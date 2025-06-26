@@ -2,7 +2,7 @@
 
 import { useContent } from "@/hooks/useContent";
 import { useThemeStore } from "@/store/theme.store";
-import { MainPageContent } from "@/types/content.interface";
+import { FooterContent, MainPageContent } from "@/types/content.interface";
 import { Language } from "@/types/language.interface";
 import { Devider } from "./devider.component";
 import { TimeLine } from "./timeline.component";
@@ -19,6 +19,8 @@ export default function MainBody() {
           , contactNamePlaceholder, contactEmailLabel, contactEmailPlaceholder 
           , contactMessageLabel, contactMessagePlaceholder
         } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
+
+  const { officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
   
   return (
     <div className="grid grid-cols-1">
@@ -172,15 +174,16 @@ export default function MainBody() {
               </div>
               <div className="flex items-center gap-2">
                 <img src="/office-icon.png" className="w-5 h-5 text-slate-800"/>
-                <span className="cursor-pointer hover:underline">Kountouriotou 23, <br/>Rethymno, Greece</span>
+                <a href="https://www.google.com/maps/place/%CE%9A%CE%BF%CF%85%CE%BD%CF%84%CE%BF%CF%85%CF%81%CE%B9%CF%8E%CF%84%CE%BF%CF%85+23,+%CE%A1%CE%AD%CE%B8%CF%85%CE%BC%CE%BD%CE%BF+741+32/@35.366303,24.4737171,17z/data=!3m1!4b1!4m6!3m5!1s0x149b75a778853aa3:0xda20aec8ebfb3fe5!8m2!3d35.366303!4d24.476292!16s%2Fg%2F11c5jywkys?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" className="text-base cursor-pointer hover:underline" target="_blank" rel="noopener noreferrer">
+                  {officeAddress}
+                </a>
               </div>
               <div className="flex items-start gap-2">
                 <img src="/time-icon.png" className="w-5 h-5 text-slate-800"/>
                 <div>
-                <div className="cursor-default">Office Hours:</div>
-                <ul className="list-inside text-sm">
-                  <li className="cursor-default">Mon–Fri: 9:00 AM – 5:00 PM</li>
-                  <li className="cursor-default">Sat–Sun: Closed</li>
+                <ul className="list-inside text-base">
+                  <li className="cursor-default">{daysLabel}</li>
+                  <li className="cursor-default">{hoursLabel}</li>
                 </ul>
               </div>
               </div>
