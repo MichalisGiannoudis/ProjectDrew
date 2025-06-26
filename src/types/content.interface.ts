@@ -19,11 +19,15 @@ export interface MainPageContent{
     progessionLabel: string,
     bioHeaderLabel: string,
     bioBodyLabel: string
-    exp1Label: string,
-    exp2Label: string,
-    exp3Label: string,
-    exp4Label: string,
-    exp5Label: string,
+    servicesLabel: string,
+    service1Label: string,
+    service2Label: string,
+    service3Label: string,
+    service4Label: string,
+    service1Body: string,
+    service2Body: string,
+    service3Body: string,
+    service4Body: string,
 }
 
 export interface MilestoneContent {

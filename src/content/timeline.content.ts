@@ -5,7 +5,7 @@ export const MilestonesEN: MilestoneContent = {
         {
             yearLabel: '2015',
             titleLabel: "University",
-            descriptionLabel: "Accepted into Aristotle University of Thessaloniki, in the 3rd place among 300 students."
+            descriptionLabel: "Got accepted into Aristotle University of Thessaloniki."
         },
         {
             yearLabel: '2019',
@@ -35,12 +35,12 @@ export const MilestonesGR: MilestoneContent = {
         {
             yearLabel: '2015',
             titleLabel: 'Πανεπιστήμιο',
-            descriptionLabel: "Εισαγωγή στο Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης, στην 3η θέση ανάμεσα σε 300 φοιτητές."
+            descriptionLabel: "Εισαγωγή στο Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης"
         },
         {
             yearLabel: '2019',
             titleLabel: 'Αποφοίτηση Πανεπιστημίου',
-            descriptionLabel: 'Αποφοίτηση από τη Νομική Σχολή του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, με άριστα. Πρώτος της τάξης του 2015.'
+            descriptionLabel: 'Αποφοίτηση από τη Νομική Σχολή του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, με άριστα.'
         },
         {
             yearLabel: '2020',

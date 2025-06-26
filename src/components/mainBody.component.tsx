@@ -11,7 +11,8 @@ export default function MainBody() {
   
   const languageState = useThemeStore(state => state.language);
   const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel
-          , exp1Label, exp2Label, exp3Label, exp4Label, exp5Label
+          , servicesLabel, service1Label, service2Label, service3Label, service4Label,
+          service1Body, service2Body, service3Body, service4Body
         } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
   
   return (
@@ -31,7 +32,7 @@ export default function MainBody() {
         </div>
       </div>      
       
-      {/* Bio & Expertise Section */}
+      {/* Bio Section */}
       <div id="bio-section" className="relative py-16 px-8 gap-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
         <div className="absolute inset-0 opacity-10">
@@ -54,27 +55,44 @@ export default function MainBody() {
           <Devider />
           <TimeLine />
         </div>
-      </div>
+      </div>      
+      
+      {/* Services Section */}
+      <div id="services-section" className="relative py-10 px-8 bg-gray-100">
+        <div className="w-[95%] md:w-[90%] mx-auto">
+          <h2 className="text-4xl font-bold text-center text-slate-800 mb-10 cursor-default">{servicesLabel}</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-      <div id="services-section" className="relative py-16 px-8 gap-12 overflow-hidden">
-        <div className="w-full flex flex-col items-center">
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-5 overflow-x-auto py-2">
-              {[exp1Label, exp2Label, exp3Label, exp4Label, exp5Label].map((expertise, idx) => (
-              <div key={idx} className="flex flex-col items-center min-w-[120px]">
-                <div className="w-32 h-32 rounded-full border-2 border-gray-200 flex items-center justify-center text-center text-white text-sm font-medium relative overflow-hidden bg-gray-600/80 hover:bg-white/20 transition-all duration-300 cursor-pointer group">
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="text-base text-center leading-tight px-2">{expertise}</span>
-                  </div>
-                </div>
-              </div>
-              ))}
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
+              <img src="/corporate-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
+              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service1Label}</h3>
+              <p className="text-gray-600 mb-6 cursor-default">{service1Body}</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
+              <img src="/civil-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
+              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service2Label}</h3>
+              <p className="text-gray-600 mb-6 cursor-default">{service2Body}</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
+              <img src="/policy-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
+              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service3Label}</h3>
+              <p className="text-gray-600 mb-6 cursor-default">{service3Body}</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
+              <img src="/contract-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
+              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service4Label}</h3>
+              <p className="text-gray-600 mb-6 cursor-default">{service4Body}</p>
             </div>
           </div>
+        </div>
       </div>
 
-
       {/* Contact Section */}
-      <div className="bg-gray-400">
+      <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900">
         <h2 className="text-2xl font-semibold">Contact</h2>
         <p>Email: <a href="mailto:contact@example.com" className="text-blue-500 hover:underline">contact@example.com</a></p>
         <p>Phone: <a href="tel:+1234567890" className="text-blue-500 hover:underline">+123 456 7890</a></p>
