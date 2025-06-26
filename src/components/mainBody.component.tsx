@@ -6,10 +6,13 @@ import { MainPageContent } from "@/types/content.interface";
 import { Language } from "@/types/language.interface";
 import { Devider } from "./devider.component";
 import { TimeLine } from "./timeline.component";
+import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 export default function MainBody() {  
   
   const languageState = useThemeStore(state => state.language);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel, servicesLabel
           , service1Label, service2Label, service3Label, service4Label, service1Body
           , service2Body, service3Body, service4Body, contactMeLabel, contactNameLabel
@@ -101,18 +104,38 @@ export default function MainBody() {
             <form className="flex flex-col gap-4 bg-white/90 bg-opacity-70 p-6 rounded-lg shadow-lg"
               onSubmit={async (e) => {
                 e.preventDefault();
+                setIsSubmitting(true);
+                
                 const form = e.target as HTMLFormElement;
                 const formData = new FormData(form);
                 const name = formData.get("name") as string;
                 const email = formData.get("email") as string;
                 const message = formData.get("message") as string;
 
-                // Replace with your email sending logic (API, service, etc.)
-                // For demonstration, just alert
-                alert(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-                form.reset();
-              }}
-              >
+                try {
+                  const result = await emailjs.send(
+                    process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
+                    process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
+                    {
+                      from_name: name,
+                      from_email: email,
+                      message: message,
+                      to_name: 'Andreas Drandakis',
+                    },
+                    process.env.NEXT_PUBLIC_EMAIL_KEY
+                  );
+                  
+                  console.log('Email sent successfully:', result.text);
+                  alert('Message sent successfully!');
+                  form.reset();
+                } catch (error) {
+                  console.error('Failed to send email:', error);
+                  alert('Failed to send message. Please try again.');
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}>
+
               <label className="text-gray-800 font-semibold">{contactNameLabel}
                 <input type="text" name="name" required className="mt-1 font-medium block w-full rounded-md border-gray-300 shadow-md focus:border-blue-500 focus:ring-blue-500 p-2" placeholder={contactNamePlaceholder}/>
               </label>
@@ -122,7 +145,10 @@ export default function MainBody() {
               <label className="text-gray-800 font-semibold">{contactMessageLabel}
                 <textarea name="message" required rows={4} className="mt-1 font-medium block w-full rounded-md border-gray-300 shadow-md focus:border-blue-500 focus:ring-blue-500 p-2" placeholder={contactMessagePlaceholder}/>
               </label>
-              <button type="submit" className="mt-2 bg-gray-800 hover:bg-white/90 hover:text-gray-800 text-white/90 font-semibold py-2 px-4 rounded transition">Send</button>
+              <button  type="submit" disabled={isSubmitting}
+                className="mt-2 bg-gray-800 hover:bg-white/90 hover:text-gray-800 text-white/90 font-semibold py-2 px-4 rounded transition disabled:opacity-50 disabled:cursor-not-allowed">
+                {isSubmitting ? 'Sending...' : 'Send'}
+              </button>
             </form>
         </div> 
         
