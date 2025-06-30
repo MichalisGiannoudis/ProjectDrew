@@ -8,19 +8,54 @@ import { Devider } from "./devider.component";
 import { TimeLine } from "./timeline.component";
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
+import { ServiceCard } from "./serviceCard.component";
 
 export default function MainBody() {  
   
   const languageState = useThemeStore(state => state.language);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel, servicesLabel
-          , service1Label, service2Label, service3Label, service4Label, service1Body
-          , service2Body, service3Body, service4Body, contactMeLabel, contactNameLabel
+          , serviceLabel1, serviceLabel2, serviceLabel3, serviceLabel4, serviceBody1
+          , serviceBody2, serviceBody3, serviceBody4, contactMeLabel, contactNameLabel
           , contactNamePlaceholder, contactEmailLabel, contactEmailPlaceholder 
           , contactMessageLabel, contactMessagePlaceholder
         } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
 
   const { officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
+
+  const onEmailSend = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    try {
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_name: 'Andreas Drandakis',
+        },
+        process.env.NEXT_PUBLIC_EMAIL_KEY
+      );
+      
+      console.log('Email sent successfully:', result.text);
+      alert('Message sent successfully!');
+      form.reset();
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
   
   return (
     <div className="grid grid-cols-1">
@@ -71,29 +106,12 @@ export default function MainBody() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
-              <img src="/corporate-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
-              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service1Label}</h3>
-              <p className="text-gray-600 mb-6 cursor-default">{service1Body}</p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
-              <img src="/civil-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
-              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service2Label}</h3>
-              <p className="text-gray-600 mb-6 cursor-default">{service2Body}</p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
-              <img src="/policy-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
-              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service3Label}</h3>
-              <p className="text-gray-600 mb-6 cursor-default">{service3Body}</p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-2xl transition-shadow duration-300">
-              <img src="/contract-icon.png" className="w-16 h-16 bg-slate-200 rounded-lg flex items-center justify-center mx-auto mb-6 p-3"/>
-              <h3 className="text-xl h-14 font-semibold text-slate-800 mb-4 cursor-default">{service4Label}</h3>
-              <p className="text-gray-600 mb-6 cursor-default">{service4Body}</p>
-            </div>
+            {[1,2,3,4].map((_, idx) => (
+              <ServiceCard key={idx}
+              serviceLabel={ idx === 0 ? serviceLabel1 : idx === 1 ? serviceLabel2 : idx === 2 ? serviceLabel3 : serviceLabel4 }
+              serviceBody={ idx === 0 ? serviceBody1 : idx === 1 ? serviceBody2 : idx === 2 ? serviceBody3 : serviceBody4 }
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -103,41 +121,7 @@ export default function MainBody() {
         
         <div className="pt-10 pb-10 w-[80%] md:w-[60%]">
             <h2 className="text-2xl text-white font-semibold mb-6">{contactMeLabel}</h2>
-            <form className="flex flex-col gap-4 bg-white/90 bg-opacity-70 p-6 rounded-lg shadow-lg"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                setIsSubmitting(true);
-                
-                const form = e.target as HTMLFormElement;
-                const formData = new FormData(form);
-                const name = formData.get("name") as string;
-                const email = formData.get("email") as string;
-                const message = formData.get("message") as string;
-
-                try {
-                  const result = await emailjs.send(
-                    process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
-                    process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
-                    {
-                      from_name: name,
-                      from_email: email,
-                      message: message,
-                      to_name: 'Andreas Drandakis',
-                    },
-                    process.env.NEXT_PUBLIC_EMAIL_KEY
-                  );
-                  
-                  console.log('Email sent successfully:', result.text);
-                  alert('Message sent successfully!');
-                  form.reset();
-                } catch (error) {
-                  console.error('Failed to send email:', error);
-                  alert('Failed to send message. Please try again.');
-                } finally {
-                  setIsSubmitting(false);
-                }
-              }}>
-
+            <form onSubmit={onEmailSend} className="flex flex-col gap-4 bg-white/90 bg-opacity-70 p-6 rounded-lg shadow-lg">
               <label className="text-gray-800 font-semibold">{contactNameLabel}
                 <input type="text" name="name" required className="mt-1 font-medium block w-full rounded-md border-gray-300 shadow-md focus:border-blue-500 focus:ring-blue-500 p-2" placeholder={contactNamePlaceholder}/>
               </label>
@@ -175,7 +159,13 @@ export default function MainBody() {
               <div className="flex items-center gap-2">
                 <img src="/office-icon.png" className="w-5 h-5 text-slate-800"/>
                 <a href="https://www.google.com/maps/place/%CE%9A%CE%BF%CF%85%CE%BD%CF%84%CE%BF%CF%85%CF%81%CE%B9%CF%8E%CF%84%CE%BF%CF%85+23,+%CE%A1%CE%AD%CE%B8%CF%85%CE%BC%CE%BD%CE%BF+741+32/@35.366303,24.4737171,17z/data=!3m1!4b1!4m6!3m5!1s0x149b75a778853aa3:0xda20aec8ebfb3fe5!8m2!3d35.366303!4d24.476292!16s%2Fg%2F11c5jywkys?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" className="text-base cursor-pointer hover:underline" target="_blank" rel="noopener noreferrer">
-                  {officeAddress}
+                  {officeAddress.length > 10
+                    ? <>
+                        {officeAddress.split(' ').slice(0, Math.ceil(officeAddress.split(' ').length / 2)).join(' ')}
+                        <br />
+                        {officeAddress.split(' ').slice(Math.ceil(officeAddress.split(' ').length / 2)).join(' ')}
+                      </>
+                    : officeAddress}
                 </a>
               </div>
               <div className="flex items-start gap-2">
