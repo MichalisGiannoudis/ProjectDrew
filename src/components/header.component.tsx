@@ -102,15 +102,15 @@ export default function Header() {
       <div className="grid justify-items-center items-center">
         <LanguageMenu openMenu={openLanguageMenu} setOpenMenu={setOpenLanguageMenu}/>
       </div>
-      <div className="mt-auto mb-auto flex justify-center md:hidden" ref={mobileMenuRef}>
+      <div className="mt-auto mb-auto flex justify-center md:hidden">
         <img src={openMobileMenu ? "/menu-close.png" : "/menu-open.png"} className={`w-8 h-8 transition-transform duration-300 ${openMobileMenu ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpenMobileMenu(!openMobileMenu)}/>
       </div>
       {openMobileMenu &&
-      <div className="absolute mt-18 right-0 bg-gray-700/90 text-white w-48 p-4 rounded-xl shadow-lg md:hidden z-20">
+      <div className="absolute mt-18 right-0 bg-gray-700/90 text-white w-48 p-4 rounded-xl shadow-lg md:hidden z-20" ref={mobileMenuRef}>
         <div>
-          <a onClick={() => { scrollTo('bio-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{bioOption}</a>
-          <a onClick={() => { scrollTo('services-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{servicesOption}</a>
-          <a onClick={() => { scrollTo('contact-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{contactOption}</a>
+          <button onClick={() => { scrollTo('bio-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{bioOption}</button>
+          <button onClick={() => { scrollTo('services-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{servicesOption}</button>
+          <button onClick={() => { scrollTo('contact-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{contactOption}</button>
         </div>
       </div>}
       </div>
