@@ -69,7 +69,7 @@ export default function Header() {
         <div>
           <a onClick={() => { scrollTo('bio-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{bioOption}</a>
           <a onClick={() => { scrollTo('services-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{servicesOption}</a>
-          <a onClick={() => { scrollTo('bio-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{contactOption}</a>
+          <a onClick={() => { scrollTo('contact-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{contactOption}</a>
           <></>
         </div>
       </div>}
