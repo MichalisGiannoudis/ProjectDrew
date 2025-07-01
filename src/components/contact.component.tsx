@@ -114,7 +114,7 @@ export const Contact = () => {
               <form onSubmit={onEmailSend} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">{contactNameLabel}</label>
+                    <label className="block text-base font-bold text-gray-700 mb-2">{contactNameLabel}</label>
                     <input 
                       type="text" 
                       name="firstName" 
@@ -124,7 +124,7 @@ export const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">{contactSurnNameLabel}</label>
+                    <label className="block text-base font-bold text-gray-700 mb-2">{contactSurnNameLabel}</label>
                     <input 
                       type="text" 
                       name="lastName" 
@@ -137,7 +137,7 @@ export const Contact = () => {
                 
                 <div className="grid grid-cols-1 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">{contactEmailLabel}</label>
+                    <label className="block text-base font-bold text-gray-700 mb-2">{contactEmailLabel}</label>
                     <input 
                       type="email" 
                       name="email" 
@@ -150,7 +150,7 @@ export const Contact = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{contactMessageLabel}</label>
+                  <label className="block text-base font-bold text-gray-700 mb-2">{contactMessageLabel}</label>
                   <textarea 
                     name="message" 
                     required 
