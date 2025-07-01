@@ -26,10 +26,10 @@ export default function MainBody() {
             className="w-screen h-full object-cover blur-xs"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white">
-            <hr className="w-1/2 md:w-1/5 border-t border-white mb-4" />
+            <hr className="w-1/2 lg:w-1/5 border-t border-white mb-4" />
             <p className="text-xl md:text-2xl text-center">{nameLabel}</p>
             <p className="text-lg md:text-xl text-center">{progessionLabel}</p>
-            <hr className="w-1/2 md:w-1/5 border-t border-white mt-4" />
+            <hr className="w-1/2 lg:w-1/5 border-t border-white mt-4" />
           </div>
         </div>
       </div>      
@@ -60,7 +60,7 @@ export default function MainBody() {
       <div id="services-section" className="relative py-10 px-8 bg-gray-100">
         <div className="w-[95%] md:w-[90%] mx-auto">
           <h2 className="text-4xl font-bold text-center text-slate-800 mb-10 cursor-default">{servicesLabel}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[1,2,3,4].map((_, idx) => (
               <ServiceCard key={ idx }
               serviceImage = { idx ===0 ? '/corporate-icon.png' : idx === 1 ? '/civil-icon.png' : idx === 2 ? '/policy-icon.png' : '/contract-icon.png' }

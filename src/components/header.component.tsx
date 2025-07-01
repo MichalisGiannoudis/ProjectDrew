@@ -67,14 +67,14 @@ export default function Header() {
   return (
     <div className="relative w-full flex justify-center z-30" style={{ pointerEvents: 'none' }}>
       <div
-      className="grid grid-cols-[72%_13%_15%] md:grid-cols-[35%_25%_15%_25%] lg:grid-cols-[50%_20%_15%_15%] text-center pointer-events-auto bg-gray-900/60 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
-      <div className="relative flex items-center justify-start ml-3">
-        <div className="absolute bg-slate-900/30 md:rounded-3xl md:w-48 md:h-16 z-10 "/>
+      className="grid grid-cols-[72%_13%_15%] md:grid-cols-[20%_50%_20%_10%] lg:grid-cols-[34%_30%_21%_15%] text-center pointer-events-auto bg-gray-900/60 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
+      <div className="relative flex items-center justify-start ml-3 md:ml-2">
+        <div className="absolute bg-slate-900/30 md:rounded-3xl md:w-34 lg:w-48 md:h-16 z-10 "/>
         <img src="/logo-cropped.png" className="relative w-30 h-16 md:w-50 md:h-20 z-20 object-contain"/>
       </div>
       <div className="hidden md:grid grid-cols-3 justify-items-center items-center gap-2">
         <div className="cursor-pointer group">
-        <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('bio-section')} className="text-white text-lg relative overflow-hidden flex justify-center items-center cursor-pointer">
+        <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('bio-section')} className="text-white text-lg relative overflow-hidden flex justify-center text-center items-center cursor-pointer">
           <span className="inline-block from-center-vert transition-transform duration-1000 ease-in-out" style={{ willChange: 'transform' }}>
             {bioOption}
           </span>

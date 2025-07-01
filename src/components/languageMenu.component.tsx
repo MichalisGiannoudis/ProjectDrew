@@ -33,7 +33,7 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
 
   return (
     <div ref={menuRef} className="relative flex items-center justify-self-center">
-      <div className='hidden md:flex'>
+      <div className='hidden lg:flex'>
         <button
           type="button"
           onClick={() => setOpenMenu(!openMenu)}
@@ -60,7 +60,7 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
         )}
         </div>
         
-        <div className='flex md:hidden'>
+        <div className='flex lg:hidden md:ml-5'>
           <button
             type="button"
             onClick={() => setOpenMenu(!openMenu)}
