@@ -55,11 +55,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="block md:hidden mt-3">
+      <div className="block md:hidden mt-3 mb-3">
           <Devider />
       </div>
-      <div className="flex flex-col justify-center items-center h-10 md:bg-gray-800">
-        <p>Copyright &copy; {new Date().getFullYear()} Andrew Dranakis</p>
+      <div className="flex flex-col justify-center items-center h-15 md:h-10 md:bg-gray-800">
+        <p>Copyright &copy; {new Date().getFullYear()} Dranakis Law | Created by Michalis Giannoudis</p>
       </div>
     </footer>
   );
