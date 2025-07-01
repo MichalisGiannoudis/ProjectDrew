@@ -59,7 +59,11 @@ export default function MainBody() {
       {/* Services Section */}
       <div id="services-section" className="relative py-10 px-8 bg-gray-100">
         <div className="w-[95%] md:w-[90%] mx-auto">
-          <h2 className="text-4xl font-bold text-center text-slate-800 mb-10 cursor-default">{servicesLabel}</h2>
+          <div className="flex flex-col items-center mb-10">
+            <div className="rounded-full bg-slate-800 px-12 py-3 shadow-lg">
+              <span className="text-white text-2xl font-semibold cursor-default">{servicesLabel}</span>
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[1,2,3,4].map((_, idx) => (
               <ServiceCard key={ idx }
@@ -71,7 +75,10 @@ export default function MainBody() {
           </div>
         </div>
       </div>
-
+      
+      <div className="w-full flex justify-center bg-gray-100 pt-12">
+        <div className="w-2/3 h-1.5 bg-gradient-to-r from-gray-100 via-slate-900 to-gray-100 rounded-full " />
+      </div>
       <Contact />
 
     </div>

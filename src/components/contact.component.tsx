@@ -54,10 +54,12 @@ export const Contact = () => {
   }
     
     return (
-    <div id="contact-section" className="bg-gray-100 py-16 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-4xl font-bold mb-6 text-gray-800">{contactLabel}</p>
+    <div id="contact-section" className="bg-gray-100 py-10 px-8">
+      <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center mb-10">
+            <div className="rounded-full bg-slate-800 px-12 py-3 shadow-lg">
+              <span className="text-white text-2xl font-semibold cursor-default">{contactLabel}</span>
+            </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
