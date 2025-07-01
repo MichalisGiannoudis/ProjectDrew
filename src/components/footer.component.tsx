@@ -20,17 +20,6 @@ export default function Footer() {
             <img src="/logo-cropped.png" className="w-100 h-auto mb-5"/>
             <p> {nameLabel} </p>
             <p> {progessionLabel} </p>
-            <div className="mb-3 mt-3">
-              <Devider />
-            </div>
-          </div>
-          <div className="flex gap-4 md:mb-2"> 
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <img className="w-9 h-9" src="/x-icon.png"/>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <img className="w-9 h-9" src="facebook-icon.png"/>
-            </a>
           </div>
         </div>
         <div className="block md:hidden mb-3 mt-3">
