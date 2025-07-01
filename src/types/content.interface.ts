@@ -28,13 +28,18 @@ export interface MainPageContent{
     serviceBody2: string,
     serviceBody3: string,
     serviceBody4: string,
+    contactLabel: string,
     contactMeLabel: string,
     contactNameLabel: string,
+    contactSurnNameLabel: string,
+    contactSurnNamePlaceholder: string,
     contactNamePlaceholder: string,
     contactEmailLabel: string,
     contactEmailPlaceholder: string,
     contactMessageLabel: string,
     contactMessagePlaceholder: string,
+    contactSendLabel: string;
+    contactSendingLabel: string;
 }
 
 export interface MilestoneContent {
