@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { LanguageMenu } from './languageMenu.component';
 import { useContent } from '@/hooks/useContent';
 import { useThemeStore } from '@/store/theme.store';
@@ -12,6 +12,7 @@ export default function Header() {
   const [ openMobileMenu, setOpenMobileMenu ] = useState<boolean>(false);
   const [ openLanguageMenu, setOpenLanguageMenu ] = useState<boolean>(false);
   const { bioOption, servicesOption, contactOption } = useContent(languageState === Language.Greek ? 'headerGR' : 'headerEN') as HeaderContent;
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = (value: string) => {
     const section = document.getElementById(value);
@@ -19,6 +20,22 @@ export default function Header() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setOpenMobileMenu(false);
+      }
+    };
+
+    if (openMobileMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openMobileMenu]);
 
   useEffect(() => {
     if (openMobileMenu && openLanguageMenu) {
@@ -58,10 +75,10 @@ export default function Header() {
         <img src="/phone-icon-2.png" className="w-7 h-7 justify-self-end animate-pulse"/>
         <p className="text-white text-base justify-self-start cursor-pointer">6912345678</p>
       </div>
-        <div className="grid justify-items-center items-center">
-          <LanguageMenu openMenu={openLanguageMenu} setOpenMenu={setOpenLanguageMenu}/>
-        </div>
-      <div className="mt-auto mb-auto flex justify-center md:hidden">
+      <div className="grid justify-items-center items-center">
+        <LanguageMenu openMenu={openLanguageMenu} setOpenMenu={setOpenLanguageMenu}/>
+      </div>
+      <div className="mt-auto mb-auto flex justify-center md:hidden" ref={mobileMenuRef}>
         <img src={openMobileMenu ? "/menu-close.png" : "/menu-open.png"} className={`w-8 h-8 transition-transform duration-300 ${openMobileMenu ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpenMobileMenu(!openMobileMenu)}/>
       </div>
       {openMobileMenu &&

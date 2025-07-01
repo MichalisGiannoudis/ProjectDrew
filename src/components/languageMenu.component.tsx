@@ -2,11 +2,29 @@
 
 import { useThemeStore } from '@/store/theme.store';
 import { Language } from '@/types/language.interface';
+import { useEffect, useRef } from 'react';
 
 export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpenMenu: (value:boolean) => void}) => {
 
   const languageState = useThemeStore(state => state.language);
   const setStoreLanguage = useThemeStore(state => state.setLanguage);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpenMenu(false);
+      }
+    };
+
+    if (openMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openMenu, setOpenMenu]);
 
   const  toggleLanguage = (language: Language) => {
     setStoreLanguage(language);
@@ -14,8 +32,7 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
   }
 
   return (
-    <div className="relative flex items-center justify-self-center">
-      
+    <div ref={menuRef} className="relative flex items-center justify-self-center">
       <div className='hidden md:flex'>
         <button
           type="button"
@@ -33,7 +50,6 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
                   {Language.English}
                 </button>
               </li>
-
               <li>
                 <button onClick={() => { toggleLanguage(Language.Greek); setOpenMenu(false); }}className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
                   {Language.Greek}
@@ -70,7 +86,6 @@ export const LanguageMenu = ({openMenu, setOpenMenu}: {openMenu:boolean, setOpen
             </div>
           )}
         </div>
-
     </div>
   );
 };
