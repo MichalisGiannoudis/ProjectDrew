@@ -4,6 +4,7 @@ import { useContent } from "@/hooks/useContent";
 import { useThemeStore } from "@/store/theme.store";
 import { Language } from "@/types/language.interface";
 import { FooterContent, MainPageContent } from "@/types/content.interface";
+import Image from "next/image";
 
 export const Contact = () => {
     
@@ -70,11 +71,11 @@ export const Contact = () => {
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold mb-4 text-white">{contactMeLabel}</h2>
                 
-                <div className="space-y-6">
+                <div className="space-y-6 -ml-1.5">
                   {/* Phone */}
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <img src="/phone-icon.png" className="w-8 h-8 filter brightness-0 invert"/>
+                      <Image src="/phone-icon.png" alt="phone-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                     </div>
                     <span className="text-white text-lg">+0123 4567 8910</span>
                   </div>
@@ -82,7 +83,7 @@ export const Contact = () => {
                   {/* Email */}
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <img src="/email-icon.png" className="w-8 h-8 filter brightness-0 invert"/>
+                      <Image src="/email-icon.png" alt="email-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                     </div>
                     <span className="text-white text-lg">hello@flowbase.com</span>
                   </div>
@@ -91,7 +92,7 @@ export const Contact = () => {
                   <div className="grid grid-cols-1 items-center ml-1.5 md:ml-0 gap-4">
                     <div className="flex items-center gap-5 md:gap-4">
                         <div className="w-10 h-10 flex items-center justify-center">
-                            <img src="/location-icon.png" className="w-8 h-8 filter brightness-0 invert"/>
+                            <Image src="/location-icon.png" alt="location-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                         </div>
                         <span className="text-white text-lg">{officeAddress}</span>
                     </div>
