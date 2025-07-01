@@ -12,8 +12,8 @@ export default function Footer() {
   const { nameLabel, progessionLabel, contactLabel, officeLabel, officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
 
   return (
-    <footer className="text-center bg-gray-900 text-white w-full h-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2">
+    <footer className="text-center bg-gray-900 text-white w-full h-auto md:h-55">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2 md:h-55">
         {/* Social Media & Logo */}
         <div className="flex flex-col justify-center items-center">
           <div>
