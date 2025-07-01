@@ -2,7 +2,7 @@
 
 import { useContent } from "@/hooks/useContent";
 import { useThemeStore } from "@/store/theme.store";
-import { FooterContent, MainPageContent } from "@/types/content.interface";
+import { MainPageContent } from "@/types/content.interface";
 import { Language } from "@/types/language.interface";
 import { Devider } from "./devider.component";
 import { TimeLine } from "./timeline.component";
@@ -44,9 +44,6 @@ export default function MainBody() {
         </div>
         <div className="relative z-10 grid grid-cols-1 items-center justify-center gap-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
-            {/* <div className="w-60 h-60 rounded-full overflow-hidden flex-shrink-0  shadow-2xl">
-              <img src="/profile.jpg" className="w-full h-full object-cover"/>
-            </div> */}
             <div className="text-left max-w-2xl">
               <p className="text-4xl font-bold mb-4 text-white drop-shadow-lg">{bioHeaderLabel}</p>
               <div className="mb-6">
@@ -75,7 +72,6 @@ export default function MainBody() {
         </div>
       </div>
 
-      {/* Contact Section */}
       <Contact />
 
     </div>
