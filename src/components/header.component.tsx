@@ -15,6 +15,9 @@ export default function Header() {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = (value: string) => {
+
+    console.log(`Scrolling to section: ${value}`);
+
     const section = document.getElementById(value);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
@@ -49,26 +52,47 @@ export default function Header() {
     }
   }, [openLanguageMenu]);
 
+  const animateFromAbove = (e: React.MouseEvent<HTMLParagraphElement>) => {
+    const span = e.currentTarget.querySelector('span');
+    if (span) {
+      span.classList.remove('from-center-vert');
+      span.classList.add('from-above-vert');
+      setTimeout(() => {
+        span.classList.remove('from-above-vert');
+        span.classList.add('from-center-vert');
+      }, 1000);
+    }
+  }
+
   return (
-    <div className="grid grid-cols-[72%_13%_15%] md:grid-cols-[35%_25%_15%_25%] lg:grid-cols-[50%_20%_15%_15%] text-center bg-gray-900 w-full h-auto">
-      <div>
-        <img src="/logo-cropped.png" className="w-50 h-auto p-5"/>
+    <div className="relative w-full flex justify-center z-30" style={{ pointerEvents: 'none' }}>
+      <div
+      className="grid grid-cols-[72%_13%_15%] md:grid-cols-[35%_25%_15%_25%] lg:grid-cols-[50%_20%_15%_15%] text-center pointer-events-auto bg-gray-900/60 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
+      <div className="relative flex items-center justify-start ml-3">
+        <div className="absolute bg-slate-900/30 md:rounded-3xl md:w-48 md:h-16 z-10 "/>
+        <img src="/logo-cropped.png" className="relative w-30 h-16 md:w-50 md:h-20 z-20 object-contain"/>
       </div>
       <div className="hidden md:grid grid-cols-3 justify-items-center items-center gap-2">
         <div className="cursor-pointer group">
-          <p onClick={() => scrollTo('bio-section')} className="text-white text-lg relative overflow-hidden">{bioOption}
-            <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
-          </p>
+        <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('bio-section')} className="text-white text-lg relative overflow-hidden flex justify-center items-center cursor-pointer">
+          <span className="inline-block from-center-vert transition-transform duration-1000 ease-in-out" style={{ willChange: 'transform' }}>
+            {bioOption}
+          </span>
+        </p>
         </div>
         <div className="cursor-pointer group">
-          <p onClick={() => scrollTo('services-section')} className="text-white text-lg relative overflow-hidden">{servicesOption}
-            <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
-          </p>
+        <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('services-section')} className="text-white text-lg relative overflow-hidden flex justify-center items-center cursor-pointer">
+          <span className="inline-block from-center-vert transition-transform duration-1000 ease-in-out" style={{ willChange: 'transform' }}>
+            {servicesOption}
+          </span>
+        </p>
         </div>
         <div className="cursor-pointer group">
-          <p onClick={() => scrollTo('contact-section')}className="text-white text-lg relative overflow-hidden">{contactOption}
-            <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"/>
-          </p>
+        <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('contact-section')} className="text-white text-lg relative overflow-hidden flex justify-center items-center cursor-pointer">
+          <span className="inline-block from-center-vert transition-transform duration-1000 ease-in-out" style={{ willChange: 'transform' }}>
+            {contactOption}
+          </span>
+        </p>
         </div>
       </div>
       <div className="hidden md:grid grid-cols-2 justify-items-center items-center gap-2">
@@ -82,14 +106,14 @@ export default function Header() {
         <img src={openMobileMenu ? "/menu-close.png" : "/menu-open.png"} className={`w-8 h-8 transition-transform duration-300 ${openMobileMenu ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpenMobileMenu(!openMobileMenu)}/>
       </div>
       {openMobileMenu &&
-      <div className="absolute mt-22 mr-5 right-0 bg-gray-700 text-white w-48 p-4 rounded-md shadow-lg md:hidden z-20">
+      <div className="absolute mt-18 right-0 bg-gray-700/90 text-white w-48 p-4 rounded-xl shadow-lg md:hidden z-20">
         <div>
           <a onClick={() => { scrollTo('bio-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{bioOption}</a>
           <a onClick={() => { scrollTo('services-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{servicesOption}</a>
           <a onClick={() => { scrollTo('contact-section'); setOpenMobileMenu(false); }} className="block px-4 py-2 hover:bg-gray-700">{contactOption}</a>
-          <></>
         </div>
       </div>}
+      </div>
     </div>
   );
 }

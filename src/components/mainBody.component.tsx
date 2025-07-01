@@ -20,16 +20,16 @@ export default function MainBody() {
   return (
     <div className="grid grid-cols-1">
       <div className="grid grid-rows-1 bg-black relative z-0">
-        <div className="relative overflow-hidden h-[50vh]">
+        <div className="relative overflow-hidden h-[70vh]">
           <img
             src="/home-background.jpg"
             className="w-screen h-full object-cover blur-xs"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white">
-            <hr className="w-1/2 md:w-1/6 border-t border-white mb-4" />
-            <p className="text-xl text-center">{nameLabel}</p>
-            <p className="text-lg text-center">{progessionLabel}</p>
-            <hr className="w-1/2 md:w-1/6 border-t border-white mt-4" />
+            <hr className="w-1/2 md:w-1/5 border-t border-white mb-4" />
+            <p className="text-xl md:text-2xl text-center">{nameLabel}</p>
+            <p className="text-lg md:text-xl text-center">{progessionLabel}</p>
+            <hr className="w-1/2 md:w-1/5 border-t border-white mt-4" />
           </div>
         </div>
       </div>      
