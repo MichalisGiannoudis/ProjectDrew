@@ -65,12 +65,12 @@ export default function MainBody() {
             src="/home-background.jpg"
             className="w-screen h-full object-cover blur-xs"
           />
-            <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white">
-              <hr className="w-1/2 md:w-1/6 border-t border-white mb-4" />
-              <p className="text-xl text-center">{nameLabel}</p>
-              <p className="text-lg text-center">{progessionLabel}</p>
-              <hr className="w-1/2 md:w-1/6 border-t border-white mt-4" />
-            </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white">
+            <hr className="w-1/2 md:w-1/6 border-t border-white mb-4" />
+            <p className="text-xl text-center">{nameLabel}</p>
+            <p className="text-lg text-center">{progessionLabel}</p>
+            <hr className="w-1/2 md:w-1/6 border-t border-white mt-4" />
+          </div>
         </div>
       </div>      
       
@@ -84,9 +84,9 @@ export default function MainBody() {
         </div>
         <div className="relative z-10 grid grid-cols-1 items-center justify-center gap-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
-            <div className="w-60 h-60 rounded-full overflow-hidden flex-shrink-0  shadow-2xl">
+            {/* <div className="w-60 h-60 rounded-full overflow-hidden flex-shrink-0  shadow-2xl">
               <img src="/profile.jpg" className="w-full h-full object-cover"/>
-            </div>
+            </div> */}
             <div className="text-left max-w-2xl">
               <p className="text-6xl font-bold mb-4 text-white drop-shadow-lg">{bioHeaderLabel}</p>
               <div className="mb-6">
@@ -103,13 +103,12 @@ export default function MainBody() {
       <div id="services-section" className="relative py-10 px-8 bg-gray-100">
         <div className="w-[95%] md:w-[90%] mx-auto">
           <h2 className="text-4xl font-bold text-center text-slate-800 mb-10 cursor-default">{servicesLabel}</h2>
-          
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
             {[1,2,3,4].map((_, idx) => (
-              <ServiceCard key={idx}
-              serviceLabel={ idx === 0 ? serviceLabel1 : idx === 1 ? serviceLabel2 : idx === 2 ? serviceLabel3 : serviceLabel4 }
-              serviceBody={ idx === 0 ? serviceBody1 : idx === 1 ? serviceBody2 : idx === 2 ? serviceBody3 : serviceBody4 }
+              <ServiceCard key={ idx }
+              serviceImage = { idx ===0 ? '/corporate-icon.png' : idx === 1 ? '/civil-icon.png' : idx === 2 ? '/policy-icon.png' : '/contract-icon.png' }
+              serviceLabel = { idx === 0 ? serviceLabel1 : idx === 1 ? serviceLabel2 : idx === 2 ? serviceLabel3 : serviceLabel4 }
+              serviceBody = { idx === 0 ? serviceBody1 : idx === 1 ? serviceBody2 : idx === 2 ? serviceBody3 : serviceBody4 }
               />
             ))}
           </div>
