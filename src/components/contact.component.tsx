@@ -91,21 +91,20 @@ export const Contact = () => {
                   </div>
                   
                   {/* Address */}
-                  <div className="grid grid-cols-1 items-center ml-1.5 md:ml-0 gap-4">
-                    <div className="flex items-center gap-5 md:gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center">
-                            <Image src="/location-icon.png" alt="location-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
-                        </div>
-                        <span className="text-white text-lg">{officeAddress}</span>
-                    </div>
+                  <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 flex items-center justify-center">
+                        <Image src="/location-icon.png" alt="location-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
+                      </div>
+                    <span className="text-white text-lg">{officeAddress}</span>
+                  </div>
 
                    {/* OFfice Hours */}
-                    <div className="flex items-center ml-[18%] md:ml-[10%]">
-                        <span className="text-white text-lg">
-                        {daysLabel}<br/>
-                        {hoursLabel}
-                        </span>
-                    </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10"></div>
+                    <span className="text-white text-lg">
+                      {daysLabel}<br/>
+                      {hoursLabel}
+                    </span>
                   </div>
 
                 </div>
