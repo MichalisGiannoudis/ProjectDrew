@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Social Media & Logo */}
         <div className="flex flex-col justify-center items-center">
           <div>
-            <img src="/logo-cropped.png" className="w-100 h-auto mb-5"/>
+            <img src="/logo-cropped.png" className="w-100 h-auto mb-5 p-4 md:p-0 lg:p-0"/>
             <p> {nameLabel} </p>
             <p> {progessionLabel} </p>
           </div>
