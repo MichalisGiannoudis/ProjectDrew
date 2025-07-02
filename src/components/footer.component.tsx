@@ -48,10 +48,12 @@ export default function Footer() {
             <p className="text-2xl mb-3"> {officeLabel} </p>
             <div className="flex flex-col items-center md:flex-row md:items-start md:gap-2 md:mb-1">
               <img className="w-8 h-8" src="location-icon.png"/>
-              <p className="flex items-center justify-center h-9"> {officeAddress} </p>
+              <p className="flex items-center justify-center md:h-9"> {officeAddress} </p>
             </div>
-            <p className="font-semibold"> {daysLabel} </p>
-            <p> {hoursLabel} </p>
+            <div className="grid grid-cols-1 items-start mb-1">
+              <p className="font-semibold"> {daysLabel} </p>
+              <p className="text-center md:text-start"> {hoursLabel} </p>
+            </div>
           </div>
         </div>
       </div>
