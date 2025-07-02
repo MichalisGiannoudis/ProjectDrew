@@ -66,9 +66,9 @@ export const Contact = () => {
             {/* Contact Information Card */}
             <div className="relative bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 rounded-3xl p-8 text-slate-800 overflow-hidden">
               {/* Decorative background elements */}
-              <div className="absolute top-1/2 right-0 w-32 h-32 bg-slate-300 rounded-full transform translate-x-8"></div>
-              <div className="absolute bottom-0 right-1/4 w-20 h-20 bg-slate-500 rounded-full"></div>
-              <div className="absolute bottom-8 right-8 w-12 h-12 bg-slate-400 rounded-full"></div>
+                <div className="hidden sm:block absolute top-1/2 right-0 w-32 h-32 bg-slate-300 rounded-full transform translate-x-8"></div>
+                <div className="hidden sm:block absolute bottom-0 right-1/4 w-20 h-20 bg-slate-500 rounded-full"></div>
+                <div className="hidden sm:block absolute bottom-8 right-8 w-12 h-12 bg-slate-400 rounded-full"></div>
               
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold mb-4 text-white">{contactMeLabel}</h2>
