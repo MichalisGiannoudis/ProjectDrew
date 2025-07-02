@@ -67,10 +67,10 @@ export default function Header() {
   return (
     <div className="relative w-full flex justify-center z-30" style={{ pointerEvents: 'none' }}>
       <div
-      className="grid grid-cols-[72%_13%_15%] md:grid-cols-[20%_50%_20%_10%] lg:grid-cols-[34%_30%_21%_15%] text-center pointer-events-auto bg-gray-900/60 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
+      className="grid grid-cols-[72%_13%_15%] md:grid-cols-[20%_50%_20%_10%] lg:grid-cols-[34%_30%_21%_15%] text-center pointer-events-auto bg-gray-900/40 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
       <div className="relative flex items-center justify-start ml-3 md:ml-2">
-        <div className="absolute bg-slate-900/30 md:rounded-3xl lg:ml-1 md:w-34 lg:w-48 md:h-16 z-10 "/>
-        <img src="/logo-cropped.png" className="relative w-30 h-16 md:w-50 md:h-20 z-20 object-contain"/>
+        <img src="/logo-cropped-symbol.png" className="hidden md:block lg:hidden w-8 h-14 ml-3 md:w-10 md:h-16 pb-1 z-20 object-contain"/>
+        <img src="/logo-cropped.png" className="block md:hidden lg:block w-40 h-16 lg:h-20 lg:pb-1 ml-0.5 lg:ml-3 z-20 object-contain"/>
       </div>
       <div className="hidden md:grid grid-cols-3 justify-items-center items-center gap-2">
         <div className="cursor-pointer group">
