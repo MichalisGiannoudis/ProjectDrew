@@ -55,13 +55,13 @@ export default function MainBody() {
       
       {/* Services Section */}
       <div id="services-section" className="relative py-10 px-8 bg-gray-100">
-        <div className="w-[95%] md:w-[90%] mx-auto">
+        <div className="w-[95%] md:w-[95%] mx-auto">
           <div className="flex flex-col items-center mb-16">
             <div className="rounded-full bg-slate-800 px-12 py-3 shadow-lg">
               <span className="text-white text-2xl font-semibold cursor-default">{servicesLabel}</span>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-12 lg:gap-8">
             {[1,2,3,4].map((_, idx) => (
               <ServiceCard key={ idx }
               serviceImage = { idx ===0 ? '/corporate-icon.png' : idx === 1 ? '/civil-icon.png' : idx === 2 ? '/policy-icon.png' : '/contract-icon.png' }
