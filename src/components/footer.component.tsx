@@ -18,11 +18,14 @@ export default function Footer() {
         <div className="flex flex-col justify-center items-center">
           <div>
             <img src="/logo-cropped.png" className="w-100 h-auto mb-5 p-4 md:p-0 lg:p-0"/>
+            <div className="hidden md:block lg:block mb-3 mt-3">
+              <Devider />
+            </div>
             <p> {nameLabel} </p>
             <p> {progessionLabel} </p>
           </div>
         </div>
-        <div className="block md:hidden mb-3 mt-3">
+        <div className="flex md:hidden mb-3 mt-3">
           <Devider />
         </div>
         {/* Contact Info */}
@@ -61,7 +64,7 @@ export default function Footer() {
           <Devider />
       </div>
       <div className="flex flex-col justify-center items-center h-15 md:h-10 md:bg-gray-800">
-        <p>Copyright &copy; {new Date().getFullYear()} Dranakis Law | Created by Michalis Giannoudis</p>
+        <p>Copyright &copy; {new Date().getFullYear()} Drandakis Law | Created by Michalis Giannoudis</p>
       </div>
     </footer>
   );
