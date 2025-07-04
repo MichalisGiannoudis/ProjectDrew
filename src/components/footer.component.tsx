@@ -25,7 +25,7 @@ export default function Footer() {
             <p> {progessionLabel} </p>
           </div>
         </div>
-        <div className="flex md:hidden mb-3 mt-3">
+        <div className="block md:hidden lg:hidden mb-3 mt-3">
           <Devider />
         </div>
         {/* Contact Info */}
