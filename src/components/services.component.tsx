@@ -14,7 +14,6 @@ interface ServiceItem {
 export const Services = () => {
     const [activeService, setActiveService] = useState<number | null>(null);
     const [expandedMobile, setExpandedMobile] = useState<number | null>(null);
-    const [isAnimating, setIsAnimating] = useState(false);
 
     const languageState = useThemeStore(state => state.language);
     const {  servicesLabel, serviceLabel1, serviceLabel2, serviceLabel3, serviceLabel4, serviceLabel5, serviceLabel6, serviceLabel7
@@ -38,10 +37,8 @@ export const Services = () => {
             if (activeService === serviceId) {
                 setActiveService(null);
             } else {
-                setIsAnimating(true);
                 setTimeout(() => {
                     setActiveService(serviceId);
-                    setIsAnimating(false);
                 }, 300);
             }
         }
