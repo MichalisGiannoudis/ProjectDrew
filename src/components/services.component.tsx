@@ -159,7 +159,7 @@ export const Services = () => {
 
             {/* Mobile Layout */}
             <div className="md:hidden space-y-4">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
                         <div onClick={() => handleServiceClick(service.id)}
                             className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors duration-200">

@@ -17,7 +17,7 @@ export const ServicesHorizontal = () => {
 
     const languageState = useThemeStore(state => state.language);
     const {  servicesLabel, serviceLabel1, serviceLabel2, serviceLabel3, serviceLabel4, serviceLabel5, serviceLabel6, serviceLabel7
-            , serviceBody1, serviceBody2, serviceBody3, serviceBody4, serviceBody5, serviceBody6, serviceBody7, servicesDetailsLabel
+            , serviceBody1, serviceBody2, serviceBody3, serviceBody4, serviceBody5, serviceBody6, serviceBody7
     } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
 
     const services: ServiceItem[] = [
@@ -58,7 +58,7 @@ export const ServicesHorizontal = () => {
 
             {/* Tablet Layout */}
             <div className="hidden md:block lg:hidden space-y-4">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
                         <div onClick={() => handleServiceClick(service.id)}
                             className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors duration-200">
@@ -98,7 +98,7 @@ export const ServicesHorizontal = () => {
 
             {/* Mobile Layout */}
             <div className="md:hidden space-y-4">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
                         <div onClick={() => handleServiceClick(service.id)}
                             className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors duration-200">
