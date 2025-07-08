@@ -66,7 +66,7 @@ export default function Header() {
 
   return (
     <div className="relative w-full flex justify-center z-30" style={{ pointerEvents: 'none' }}>
-      <div className="grid grid-cols-[72%_13%_15%] md:grid-cols-[25%_50%_25%] lg:grid-cols-[35%_30%_35%] text-center pointer-events-auto bg-gray-900/40 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
+      <div className="grid grid-cols-[75%_10%_15%] md:grid-cols-[25%_50%_25%] lg:grid-cols-[35%_30%_35%] text-center pointer-events-auto bg-gray-900/40 md:bg-gray-900/40 w-[95%] h-auto rounded-2xl md:rounded-4xl shadow-lg backdrop-blur-md drop-shadow-xl mt-5 absolute">
         <div className="relative flex items-center justify-start ml-3 md:ml-2">
           <img src="/logo-cropped-symbol.png" className="hidden md:block lg:hidden w-8 h-14 ml-3 md:w-10 md:h-16 pb-1 z-20 object-contain"/>
           <img src="/logo-cropped.png" className="block md:hidden lg:block w-40 h-16 lg:h-20 lg:pb-1 ml-0.5 lg:ml-3 z-20 object-contain"/>
@@ -97,9 +97,8 @@ export default function Header() {
       <div className="flex justify-end items-center mr-3">
         <LanguageMenu openMenu={openLanguageMenu} setOpenMenu={setOpenLanguageMenu}/>
       </div>
-        <div className="mt-auto mb-auto flex justify-center md:hidden" ref={mobileMenuRef}>
-          <img src={openMobileMenu ? "/menu-close.png" : "/menu-open.png"} className={`w-8 h-8 transition-transform duration-300 ${openMobileMenu ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpenMobileMenu(!openMobileMenu)}/>
-        </div>
+      <div className="relative mt-auto mb-auto flex justify-center md:hidden" ref={mobileMenuRef}>
+        <img src={openMobileMenu ? "/menu-close.png" : "/menu-open.png"} className={`w-8 h-8 transition-transform duration-300 ${openMobileMenu ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpenMobileMenu(!openMobileMenu)}/>
         {openMobileMenu &&
         <div className="absolute mt-18 right-0 bg-gray-700/90 text-white w-48 p-4 rounded-xl shadow-lg md:hidden z-20">
           <div>
@@ -108,6 +107,7 @@ export default function Header() {
             <button onClick={() => { scrollTo('contact-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{contactOption}</button>
           </div>
         </div>}
+      </div>
       </div>
     </div>
   );
