@@ -62,43 +62,32 @@ export const Contact = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-
-            {/* Contact Information Card */}
             <div className="relative bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 rounded-3xl p-8 text-slate-800 overflow-hidden">
-              {/* Decorative background elements */}
                 <div className="hidden sm:block absolute top-1/2 right-0 w-32 h-32 bg-slate-300 rounded-full transform translate-x-8"></div>
                 <div className="hidden sm:block absolute bottom-0 right-1/4 w-20 h-20 bg-slate-500 rounded-full"></div>
                 <div className="hidden sm:block absolute bottom-8 right-8 w-12 h-12 bg-slate-400 rounded-full"></div>
               
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold mb-4 text-white">{contactMeLabel}</h2>
-                
                 <div className="space-y-6 -ml-1.5">
-                  {/* Phone */}
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 flex items-center justify-center">
                       <Image src="/phone-icon.png" alt="phone-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                     </div>
                     <span className="text-white text-lg">+0123 4567 8910</span>
                   </div>
-                  
-                  {/* Email */}
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 flex items-center justify-center">
                       <Image src="/email-icon.png" alt="email-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                     </div>
                     <span className="text-white text-lg">hello@flowbase.com</span>
                   </div>
-                  
-                  {/* Address */}
                   <div className="flex items-center gap-4">
                       <div className="w-10 h-10 flex items-center justify-center">
                         <Image src="/location-icon.png" alt="location-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                       </div>
                     <span className="text-white text-lg">{officeAddress}</span>
                   </div>
-
-                   {/* OFfice Hours */}
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10"></div>
                     <span className="text-white text-lg">
@@ -110,8 +99,6 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Contact Form */}
             <div className="bg-white rounded-3xl p-8 shadow-lg">
               <form onSubmit={onEmailSend} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -136,7 +123,6 @@ export const Contact = () => {
                     />
                   </div>
                 </div>
-                
                 <div className="grid grid-cols-1 gap-6">
                   <div>
                     <label className="block text-base font-bold text-gray-700 mb-2">{contactEmailLabel}</label>
@@ -148,9 +134,7 @@ export const Contact = () => {
                       placeholder={contactEmailPlaceholder}
                     />
                   </div>
-
                 </div>
-                
                 <div>
                   <label className="block text-base font-bold text-gray-700 mb-2">{contactMessageLabel}</label>
                   <textarea 
@@ -161,7 +145,6 @@ export const Contact = () => {
                     placeholder={contactMessagePlaceholder}
                   />
                 </div>
-                
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
