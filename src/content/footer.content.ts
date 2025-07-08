@@ -9,7 +9,7 @@ export const FooterContentEN = {
 }
 
 export const FooterContentGR = {
-    nameLabel: 'Αδρέας Ν. Δρανδάκης',
+    nameLabel: 'Ανδρέας Ν. Δρανδάκης',
     progessionLabel: 'Δικηγόρος | Ειδικός στο Εταιρικό & Αστικό Δίκαιο',
     contactLabel: 'Επικοινωνία',
     officeLabel: 'Γραφείο',
