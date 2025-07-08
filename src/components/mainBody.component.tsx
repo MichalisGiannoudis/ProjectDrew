@@ -7,7 +7,7 @@ import { Language } from "@/types/language.interface";
 import { Devider } from "./devider.component";
 import { TimeLine } from "./timeline.component";
 import { Contact } from "./contact.component";
-import { Services } from "./services.component";
+import { ServicesHorizontal } from "./servicesHorizontal.component";
 
 export default function MainBody() {  
   
@@ -51,7 +51,7 @@ export default function MainBody() {
       </div>      
       
       <div id="services-section" className="relative py-10 px-8 bg-gray-100">
-        <Services />
+        <ServicesHorizontal />
       </div>
       
       <div className="w-full flex justify-center bg-gray-100 pt-6">

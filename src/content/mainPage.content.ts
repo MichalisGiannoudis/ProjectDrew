@@ -4,6 +4,7 @@ export const MainPageContentEN = {
     bioHeaderLabel: 'Hello,',
     bioBodyLabel: 'I Adnreaw and am a licensed attorney with over 10 years of experience in corporate and civil law. My expertise includes corporate governance, contract law, and dispute resolution. I am committed to providing my clients with the highest level of legal service and support.',
     servicesLabel: 'Services',
+    servicesDetailsLabel: 'Click on a bubble to see more details',
     
     serviceLabel1: 'Civil Law',
     serviceLabel2: 'Commercial-Corporate Law',
@@ -41,13 +42,14 @@ export const MainPageContentGR = {
     bioHeaderLabel: 'Γειά σας,',
     bioBodyLabel: 'Είμαι ο Ανδρέας, δικηγόρος με άδεια άσκησης επαγγέλματος και πάνω από 10 χρόνια εμπειρίας στο εταιρικό και πολιτικό δίκαιο. Η εξειδίκευσή μου περιλαμβάνει εταιρική διακυβέρνηση, δίκαιο συμβάσεων και επίλυση διαφορών. Δεσμεύομαι να παρέχω στους πελάτες μου την υψηλότερη ποιότητα νομικών υπηρεσιών και υποστήριξης.',
     servicesLabel: 'Υπηρεσίες',
+    servicesDetailsLabel: 'Κάντε κλικ σε μια φυσαλίδα για να δείτε περισσότερες λεπτομέρειες',
     
     serviceLabel1: 'Αστικό Δίκαιο',
     serviceLabel2: 'Εμπορικό-Εταιρικό Δίκαιο',
     serviceLabel3: 'Διοικητικό Δίκαιο',
     serviceLabel4: 'Ποινικό Δίκαιο',
     serviceLabel5: 'Εργατικό Δίκαιο',
-    serviceLabel6: 'Δίκαιο αλλοδαπών',
+    serviceLabel6: 'Δίκαιο Αλλοδαπών',
     serviceLabel7: 'Επικυρωμένες μεταφράσεις εγγράφων',
     
     serviceBody1: 'Ακίνητα-Κτηματολόγιο, Μισθώσεις, Δάνεια, Οικογενειακά, Κληρονομικά, Διεκδίκηση χρηματικών απαιτήσεων, Σωματεία',

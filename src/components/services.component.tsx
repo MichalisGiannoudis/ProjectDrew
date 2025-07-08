@@ -14,10 +14,11 @@ interface ServiceItem {
 export const Services = () => {
     const [activeService, setActiveService] = useState<number | null>(null);
     const [expandedMobile, setExpandedMobile] = useState<number | null>(null);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const languageState = useThemeStore(state => state.language);
     const {  servicesLabel, serviceLabel1, serviceLabel2, serviceLabel3, serviceLabel4, serviceLabel5, serviceLabel6, serviceLabel7
-            , serviceBody1, serviceBody2, serviceBody3, serviceBody4, serviceBody5, serviceBody6, serviceBody7
+            , serviceBody1, serviceBody2, serviceBody3, serviceBody4, serviceBody5, serviceBody6, serviceBody7, servicesDetailsLabel
     } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
 
     const services: ServiceItem[] = [
@@ -34,62 +35,119 @@ export const Services = () => {
         if (window.innerWidth < 768) {
             setExpandedMobile(expandedMobile === serviceId ? null : serviceId);
         } else {
-            setActiveService(activeService === serviceId ? null : serviceId);
+            if (activeService === serviceId) {
+                setActiveService(null);
+            } else {
+                setIsAnimating(true);
+                setTimeout(() => {
+                    setActiveService(serviceId);
+                    setIsAnimating(false);
+                }, 300);
+            }
         }
     };
 
-    const handleCloseSidebar = () => {
-        setActiveService(null);
-    };
-
     return (
-        <div className="w-[95%] md:w-[95%] mx-auto relative">
-            <div className="flex flex-col items-center mb-16">
-                <div className="rounded-full bg-slate-800 px-12 py-3 shadow-lg">
-                    <span className="text-white text-2xl font-semibold cursor-default">{servicesLabel}</span>
+        <div className="w-full mx-auto relative">
+            <div className="flex flex-col items-center mb-20">
+                <div className="rounded-full bg-gradient-to-r from-slate-700 to-slate-900 px-16 py-4 shadow-xl">
+                    <span className="text-white text-3xl font-bold cursor-default">{servicesLabel}</span>
                 </div>
             </div>
 
-            {/* Desktop Layout */}
-            <div className="hidden md:flex md:justify-center lg:justify-center">
-                <div className="relative w-[80%] h-auto">
-                    {/* Horizontal Bubbles Container */}
-                    <div className="relative flex items-center justify-center py-4">
-                        {/* Connecting Line */}
-                        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-40 z-0"></div>
+            <div className="hidden md:flex justify-center items-center mb-12">
+                <div className="relative w-[90%] h-[65svh]">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        {/* <div className={`w-220 h-180 absolute bg-slate-800/80 rounded-full border border-slate-300 p-8 overflow-hidden transition-all duration-300`}></div> */}
+                        <div className={`absolute bg-white rounded-full border border-slate-300 p-8 overflow-hidden transition-all duration-300`}
+                            style={{
+                                zIndex: 5,
+                                width: activeService ? '350px' : '300px',
+                                height: activeService ? '350px' : '300px',
+                                left: activeService ? 'calc(50% - 175px)' : 'calc(50% - 150px)',
+                                top: activeService ? 'calc(50% - 175px)' : 'calc(50% - 150px)'
+                            }}>
+                            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white opacity-50 rounded-full"></div>
+                            {activeService ? (
+                                (() => {
+                                    const service = services.find(s => s.id === activeService);
+                                    if (!service) return null;
+                                    
+                                    return (
+                                        <div className="h-full flex flex-col relative z-10 mt-8">
+                                            <div className="flex-1 overflow-hidden">
+                                                <div className="grid grid-cols-1 gap-2 max-h-80 overflow-y-auto pr-2 custom-scrollbar">
+                                                    {service.body.split(',').map((option, idx) => (
+                                                        <div key={idx} 
+                                                            className="bg-gradient-to-r from-slate-100 to-slate-200 text-slate-800 text-sm font-medium px-8 py-2 rounded-full border border-slate-300 transition-all duration-300 hover:shadow-md hover:scale-105"
+                                                            style={{ animationDelay: `${idx * 100}ms` }}>
+                                                            <div className="flex items-center">
+                                                                <div className="flex-shrink-0 self-center">
+                                                                    <div className="w-2 h-2 bg-slate-700 rounded-full mr-3"></div>
+                                                                </div>
+                                                                <span className="leading-relaxed">{option.trim()}</span>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })()
+                            ) : (
+                                <div className="h-full flex items-center justify-center relative z-10">
+                                    <div className="text-center">
+                                        <p className="text-slate-600 text-lg font-medium leading-relaxed">
+                                            {servicesDetailsLabel}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                         
                         {/* Service Bubbles */}
-                        <div className="flex items-center space-x-20 relative z-10 overflow-visible" style={{ minHeight: '160px' }}>
+                        <div className="absolute inset-0" style={{ zIndex: 10 }}>
                             {services.map((service, index) => {
                                 const isActive = activeService === service.id;
+                                const angle = (index * 2 * Math.PI) / services.length - Math.PI / 2;
+                                const activeIndex = services.findIndex(s => s.id === activeService);
+                                const rotationOffset = activeService ? -(activeIndex * 2 * Math.PI) / services.length : 0;
+                                const finalAngle = angle + rotationOffset;
+                                const baseRadius = 250;
+                                const yPosition = Math.sin(finalAngle);
+                                const distanceMultiplier = activeService && !isActive ? 80 * (1 - Math.abs(yPosition) * 0.4): 0;
+                                const radius = baseRadius + distanceMultiplier;
+                                const x = Math.cos(finalAngle) * radius;
+                                const y = Math.sin(finalAngle) * radius;
                                 
                                 return (
-                                    <div key={service.id} onClick={() => handleServiceClick(service.id)}
-                                        className="transition-all duration-700 ease-in-out cursor-pointer flex-shrink-0 flex items-center justify-center"
+                                    <div
+                                        key={service.id}
+                                        onClick={() => handleServiceClick(service.id)}
+                                        className="absolute cursor-pointer"
                                         style={{
-                                            width: isActive ? '160px' : '150px',
-                                            height: isActive ? '160px' : '150px',
-                                            opacity: activeService && !isActive ? 0.6 : 1,
-                                            position: 'relative'
-                                        }}>
-                                        <div className={`
-                                            w-full h-full rounded-full shadow-lg transition-all duration-500
-                                            ${isActive 
-                                                ? 'bg-white shadow-2xl border-2 border-slate-400' 
-                                                : 'bg-white hover:bg-slate-50 shadow-md hover:shadow-xl border-2 border-slate-200'
-                                            }
-                                            flex items-center justify-center
-                                        `}>
-                                            <div className={`
-                                                ${isActive ? 'w-24 h-24' : 'w-20 h-20'} 
-                                                rounded-full flex flex-col items-center justify-center transition-all duration-300
-                                                ${isActive ? 'bg-white' : 'bg-slate-100'}
-                                            `}>
-                                                <img src={service.image} className={`${isActive ? 'w-12 h-12' : 'w-10 h-10'} object-contain mb-1 transition-all duration-300`}/>
-                                                <span className={`
-                                                    ${isActive ? 'text-base' : 'text-sm'} font-semibold text-center leading-tight transition-all duration-300
-                                                    ${isActive ? 'text-slate-800' : 'text-slate-600'}
-                                                `}>
+                                            left: `calc(50% + ${x}px - 72px)`,
+                                            top: `calc(50% + ${y}px - 72px)`,
+                                            transform: `scale(${isActive ? 1.2 : 1})`,
+                                            zIndex: isActive ? 20 : 10,
+                                            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            animationDelay: `${index * 0.1}s`
+                                        }}
+                                    >
+                                        <div 
+                                            className={`
+                                                w-36 h-36 rounded-full flex flex-col items-center justify-center
+                                                transition-all duration-500 ease-in-out
+                                                ${isActive 
+                                                    ? 'bg-gradient-to-br from-slate-900 to-slate-600 shadow-2xl border-4 border-white' 
+                                                    : 'bg-white hover:from-slate-200/80 hover:to-slate-300/80 shadow-lg hover:shadow-xl border-1 border-slate-500'
+                                                }
+                                                ${!isActive && activeService ? 'opacity-50' : 'opacity-100'}
+                                                hover:scale-110 group`}
+                                        >
+                                            <div className="flex flex-col items-center space-y-2">
+                                                <img src={service.image} className={`w-10 h-10 object-contain transition-all duration-300 ${isActive ? 'filter brightness-0 invert' : ''}`}/>
+                                                <span className={`text-sm font-bold text-center leading-tight transition-all duration-300 ${isActive ? 'text-white' : 'text-slate-700'}`}>
                                                     {service.label}
                                                 </span>
                                             </div>
@@ -99,90 +157,41 @@ export const Services = () => {
                             })}
                         </div>
                     </div>
-
-                    {/* Expanded Content Container */}
-                    <div className={`
-                        relative overflow-hidden transition-all duration-700 ease-in-out
-                        ${activeService ? 'max-h-96 opacity-100 mt-8' : 'max-h-0 opacity-0 mt-0'}
-                    `}>
-                        {activeService && (
-                            <div className="bg-white rounded-xl shadow-2xl border border-slate-200 p-8 mx-8 animate-fadeIn">
-                                {/* Close Button */}
-                                <button onClick={handleCloseSidebar} className="absolute top-4 right-4 w-8 h-8 bg-slate-200 hover:bg-slate-300 rounded-full flex items-center justify-center transition-colors duration-200 z-20">
-                                    <span className="text-slate-600 text-lg">×</span>
-                                </button>
-
-                                {/* Service Details */}
-                                {(() => {
-                                    const service = services.find(s => s.id === activeService);
-                                    if (!service) return null;
-                                    
-                                    return (
-                                        <div>
-                                            <div className="flex items-center mb-8">
-                                                <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mr-6">
-                                                    <img src={service.image} className="w-10 h-10 object-contain" alt={service.label} />
-                                                </div>
-                                                <div>
-                                                    <h3 className="text-3xl font-bold text-slate-800 mb-2">{service.label}</h3>
-                                                    <p className="text-slate-600">Specialized legal services</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                                {service.body.split(',').map((option, idx) => (
-                                                    <div 
-                                                        key={idx} 
-                                                        className="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800 text-sm font-medium px-4 py-4 rounded-lg border border-slate-200 hover:shadow-md transition-shadow duration-200"
-                                                        style={{ animationDelay: `${idx * 100}ms` }}
-                                                    >
-                                                        <div className="flex items-center">
-                                                            <div className="w-2 h-2 bg-slate-400 rounded-full mr-3"></div>
-                                                            {option.trim()}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    );
-                                })()}
-                            </div>
-                        )}
-                    </div>
                 </div>
             </div>
 
             {/* Mobile Layout */}
             <div className="md:hidden space-y-4">
-                {services.map((service) => (
-                    <div key={service.id} className="bg-white rounded-lg shadow-lg border border-slate-200">
-                        {/* Service Header */}
-                        <div
-                            onClick={() => handleServiceClick(service.id)}
-                            className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors duration-200"
-                        >
+                {services.map((service, index) => (
+                    <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+                        <div onClick={() => handleServiceClick(service.id)}
+                            className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors duration-200">
                             <div className="flex items-center">
-                                <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center mr-4">
-                                    <img src={service.image} className="w-8 h-8 object-contain" alt={service.label} />
+                                <div className="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center mr-4 shadow-lg">
+                                    <img src={service.image} className="w-8 h-8 object-contain filter brightness-0 invert p-1" alt={service.label} />
                                 </div>
                                 <span className="text-lg font-semibold text-slate-800">{service.label}</span>
                             </div>
                             <div className={`transform transition-transform duration-300 ${expandedMobile === service.id ? 'rotate-180' : ''}`}>
-                                <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
+                                <div className="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center">
+                                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
 
                         {/* Expandable Content */}
-                        <div className={`
-                            overflow-hidden transition-all duration-500 ease-in-out
-                            ${expandedMobile === service.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-                        `}>
+                        <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedMobile === service.id ? 'max-h-120 opacity-100' : 'max-h-0 opacity-0'}`}>
                             <div className="px-6 pb-6 space-y-3">
                                 {service.body.split(',').map((option, idx) => (
-                                    <div key={idx} className="bg-slate-100 text-slate-800 text-sm font-medium px-4 py-3 rounded-lg">
-                                        {option.trim()}
+                                    <div key={idx} className="bg-gradient-to-r from-slate-100 to-slate-200 text-slate-800 text-sm font-medium px-4 py-3 rounded-3xl border border-slate-300">
+                                        <div className="flex items-center">
+                                            <div className="flex-shrink-0 self-start mt-1.5">
+                                                <div className="w-2 h-2 bg-slate-700 rounded-full mr-3"></div>
+                                            </div>
+                                            {option.trim()}
+                                        </div>
                                     </div>
                                 ))}
                             </div>

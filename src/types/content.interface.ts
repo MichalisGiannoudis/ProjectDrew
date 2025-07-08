@@ -20,6 +20,7 @@ export interface MainPageContent{
     bioHeaderLabel: string,
     bioBodyLabel: string
     servicesLabel: string,
+    servicesDetailsLabel: string,
     serviceLabel1: string,
     serviceLabel2: string,
     serviceLabel3: string,
