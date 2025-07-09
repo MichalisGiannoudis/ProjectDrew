@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from "react";
 import { useContent } from "@/hooks/useContent";
 import { useThemeStore } from "@/store/theme.store";
 import { MainPageContent } from "@/types/content.interface";
@@ -13,6 +14,53 @@ export default function MainBody() {
   
   const languageState = useThemeStore(state => state.language);
   const {  nameLabel, progessionLabel, bioHeaderLabel, bioBodyLabel} = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
+  
+  useEffect(() => {
+    const handleScroll = () => {  
+      // Don't update hash if user is intentionally navigating
+      if ((window as any).isNavigating) {
+        return;
+      }
+      
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const aboutSection = document.getElementById('about-section');
+      const servicesSection = document.getElementById('services-section');
+      const contactSection = document.getElementById('contact-section');
+      
+      if (scrollY < 200) {
+        if (window.location.hash) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      } else if (aboutSection && servicesSection && contactSection) {
+        const aboutTop = aboutSection.offsetTop;
+        const servicesTop = servicesSection.offsetTop;
+        const contactTop = contactSection.offsetTop;
+        
+        const currentHash = window.location.hash.substring(1);
+        
+        if (scrollY >= contactTop - windowHeight / 2) {
+          if (currentHash !== 'contact') {
+            window.history.replaceState(null, '', '#contact');
+          }
+        } else if (scrollY >= servicesTop - windowHeight / 2) {
+          if (currentHash !== 'services') {
+            window.history.replaceState(null, '', '#services');
+          }
+        } else if (scrollY >= aboutTop - windowHeight / 2) {
+          if (currentHash !== 'about') {
+            window.history.replaceState(null, '', '#about');
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   return (
     <div className="grid grid-cols-1">
@@ -29,7 +77,7 @@ export default function MainBody() {
       </div>      
       
       {/* Bio Section */}
-      <div id="bio-section" className="relative py-16 px-8 gap-12 overflow-hidden">
+      <div id="about-section" className="relative py-16 px-8 gap-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>

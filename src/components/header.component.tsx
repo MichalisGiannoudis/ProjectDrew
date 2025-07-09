@@ -15,12 +15,15 @@ export default function Header() {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = (value: string) => {
-
-    console.log(`Scrolling to section: ${value}`);
-
     const section = document.getElementById(value);
     if (section) {
+      (window as any).isNavigating = true;
       section.scrollIntoView({ behavior: 'smooth' });
+      const hashName = value.split('-')[0];
+      window.history.pushState(null, '', `#${hashName}`);
+      setTimeout(() => {
+        (window as any).isNavigating = false;
+      }, 1000);
     }
   };
 
@@ -52,6 +55,37 @@ export default function Header() {
     }
   }, [openLanguageMenu]);
 
+  useEffect(() => {
+    const sectionMap: { [key: string]: string } = {
+      'about': 'about-section',
+      'services': 'services-section',
+      'contact': 'contact-section'
+    };
+
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        (window as any).isNavigating = true;
+        
+        const sectionId = sectionMap[hash] || `${hash}-section`;
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+        setTimeout(() => {
+          (window as any).isNavigating = false;
+        }, 1000);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+
+  }, []);
+
   const animateFromAbove = (e: React.MouseEvent<HTMLParagraphElement>) => {
     const span = e.currentTarget.querySelector('span');
     if (span) {
@@ -73,7 +107,7 @@ export default function Header() {
         </div>
         <div className="hidden md:grid grid-cols-3 justify-items-center items-center gap-2">
           <div className="cursor-pointer group">
-          <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('bio-section')} className="text-white text-lg relative overflow-hidden flex justify-center text-center items-center cursor-pointer">
+          <p onMouseEnter={animateFromAbove} onClick={() => scrollTo('about-section')} className="text-white text-lg relative overflow-hidden flex justify-center text-center items-center cursor-pointer">
             <span className="inline-block from-center-vert transition-transform duration-1000 ease-in-out" style={{ willChange: 'transform' }}>
               {bioOption}
             </span>
@@ -102,7 +136,7 @@ export default function Header() {
         {openMobileMenu &&
         <div className="absolute mt-18 right-0 bg-gray-700/90 text-white w-48 p-4 rounded-xl shadow-lg md:hidden z-20">
           <div>
-            <button onClick={() => { scrollTo('bio-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{bioOption}</button>
+            <button onClick={() => { scrollTo('about-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{bioOption}</button>
             <button onClick={() => { scrollTo('services-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{servicesOption}</button>
             <button onClick={() => { scrollTo('contact-section'); setOpenMobileMenu(false); }} className="block w-full text-left px-4 py-2 hover:bg-gray-700 cursor-pointer">{contactOption}</button>
           </div>
