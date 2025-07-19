@@ -65,8 +65,8 @@ export default function MainBody() {
     <div className="grid grid-cols-1">
       <div className="grid grid-rows-1 bg-black relative z-0">
         <div className="relative overflow-hidden h-[90vh] md:h-[70vh]">
-          <img src="/home-background.jpg" className="w-screen h-full object-cover blur-xs"/>
-          <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white">
+          <img src="/home-background.jpg" className="w-screen h-full object-cover blur-xs grayscale-25"/>
+          <div className="absolute inset-0 flex flex-col items-center justify-center w-full text-white lg:mt-20">
             <hr className="w-1/2 lg:w-2/7 border-t border-white mb-4" />
             <p className="text-xl md:text-3xl text-center">{nameLabel}</p>
             <p className="text-lg md:text-2xl text-center">{progessionLabel}</p>
