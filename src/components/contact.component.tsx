@@ -9,13 +9,13 @@ import Image from "next/image";
 export const Contact = () => {
     
     const [isSubmitting, setIsSubmitting] = useState(false);
-      const languageState = useThemeStore(state => state.language);
-      const {   contactMeLabel, contactNameLabel, contactNamePlaceholder, contactEmailLabel, contactEmailPlaceholder, contactLabel,
-                contactMessageLabel, contactMessagePlaceholder, contactSurnNameLabel, contactSurnNamePlaceholder, contactSendLabel,
-                contactSendingLabel
-            } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
-    
-      const { officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
+    const languageState = useThemeStore(state => state.language);
+    const {   contactMeLabel, contactNameLabel, contactNamePlaceholder, contactEmailLabel, contactEmailPlaceholder, contactLabel,
+              contactMessageLabel, contactMessagePlaceholder, contactSurnNameLabel, contactSurnNamePlaceholder, contactSendLabel,
+              contactSendingLabel, contactEmail, contactPhone
+          } = useContent(languageState === Language.Greek ? 'mainPageGR' : 'mainPageEN') as MainPageContent;
+  
+    const { officeAddress, daysLabel, hoursLabel } = useContent(languageState === Language.Greek ? 'footerGR' : 'footerEN') as FooterContent;
 
     const onEmailSend = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ export const Contact = () => {
         process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
         {
-          from_name: name,
+          name: name,
           from_email: email,
           message: message,
           to_name: 'Andreas Drandakis',
@@ -43,11 +43,9 @@ export const Contact = () => {
       );
       
       console.log('Email sent successfully:', result.text);
-      alert('Message sent successfully!');
       form.reset();
     } catch (error) {
       console.error('Failed to send email:', error);
-      alert('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -68,29 +66,29 @@ export const Contact = () => {
                 <div className="hidden sm:block absolute bottom-8 right-8 w-12 h-12 bg-slate-400 rounded-full"></div>
               
               <div className="relative z-10">
-                <h2 className="text-2xl font-bold mb-4 text-white">{contactMeLabel}</h2>
+                <h2 className="text-2xl font-bold mb-4 text-white cursor-default">{contactMeLabel}</h2>
                 <div className="space-y-6 -ml-1.5">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 flex items-center justify-center">
                       <Image src="/phone-icon.png" alt="phone-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                     </div>
-                    <span className="text-white text-lg">+0123 4567 8910</span>
+                    <span className="text-white text-lg cursor-default">{contactPhone}</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 flex items-center justify-center">
                       <Image src="/email-icon.png" alt="email-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                     </div>
-                    <span className="text-white text-lg">hello@flowbase.com</span>
+                    <span className="text-white text-lg cursor-default">{contactEmail}</span>
                   </div>
                   <div className="flex items-center gap-4">
                       <div className="w-10 h-10 flex items-center justify-center">
                         <Image src="/location-icon.png" alt="location-icon" width={32} height={32} className="w-8 h-8 filter brightness-0 invert"/>
                       </div>
-                    <span className="text-white text-lg">{officeAddress}</span>
+                    <span className="text-white text-lg cursor-default">{officeAddress}</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10"></div>
-                    <span className="text-white text-lg">
+                    <span className="text-white text-lg cursor-default">
                       {daysLabel}<br/>
                       {hoursLabel}
                     </span>
@@ -118,14 +116,14 @@ export const Contact = () => {
                       type="text" 
                       name="lastName" 
                       required 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transitio"
                       placeholder={contactSurnNamePlaceholder}
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-6">
                   <div>
-                    <label className="block text-base font-bold text-gray-700 mb-2">{contactEmailLabel}</label>
+                    <label className="block text-base font-bold text-gray-700 mb-2 ">{contactEmailLabel}</label>
                     <input 
                       type="email" 
                       name="email" 

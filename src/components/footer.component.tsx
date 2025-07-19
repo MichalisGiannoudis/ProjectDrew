@@ -51,7 +51,7 @@ export default function Footer() {
               <img className="w-8 h-8" src="location-icon.png"/>
               <p className="flex items-center justify-center md:h-9 cursor-default"> {officeAddress} </p>
             </div>
-            <div className="grid grid-cols-1 items-start mb-1">
+            <div className="grid grid-cols-1 items-start mb-1 lg:mr-14">
               <p className="font-semibold cursor-default"> {daysLabel} </p>
               <p className="text-center md:text-start cursor-default"> {hoursLabel} </p>
             </div>

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Drandakis-Law",
-  description: "Drandakis-Law",
+  title: "Drandakis Law",
+  description: "Drandakis Law",
 };
 
 export const viewport: Viewport = {
