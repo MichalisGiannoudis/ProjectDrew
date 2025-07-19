@@ -17,7 +17,6 @@ export default function MainBody() {
   
   useEffect(() => {
     const handleScroll = () => {  
-      // Don't update hash if user is intentionally navigating
       if ((window as any).isNavigating) {
         return;
       }
@@ -74,9 +73,7 @@ export default function MainBody() {
             <hr className="w-1/2 lg:w-1/5 border-t border-white mt-4" />
           </div>
         </div>
-      </div>      
-      
-      {/* Bio Section */}
+      </div>
       <div id="about-section" className="relative py-16 px-8 gap-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"></div>
         <div className="absolute inset-0 opacity-10">
@@ -87,9 +84,9 @@ export default function MainBody() {
         <div className="relative z-10 grid grid-cols-1 items-center justify-center gap-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
             <div className="text-left max-w-2xl">
-              <p className="text-4xl font-bold mb-4 text-white drop-shadow-lg">{bioHeaderLabel}</p>
+              <p className="text-4xl font-bold mb-4 text-white drop-shadow-lg cursor-default">{bioHeaderLabel}</p>
               <div className="mb-6">
-                <p className="text-gray-200 leading-relaxed text-lg">{bioBodyLabel}</p>
+                <p className="text-gray-200 leading-relaxed text-lg cursor-default">{bioBodyLabel}</p>
               </div>
             </div>
           </div>
