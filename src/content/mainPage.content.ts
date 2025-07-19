@@ -32,7 +32,7 @@ export const MainPageContentEN = {
     contactEmailPlaceholder: 'johndoe@gmail.com',
     contactMessageLabel: 'Message',
     contactMessagePlaceholder: 'I contant you, for ....',
-    contactSendLabel: 'Αποστολή Μηνύματος',
+    contactSendLabel: 'Send Message',
     contactSendingLabel: 'Sending...',
 
     contactEmail: 'drandakis.a@gmail.com',
