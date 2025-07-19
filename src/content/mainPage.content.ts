@@ -1,8 +1,8 @@
 export const MainPageContentEN = {
     nameLabel: 'Andreas N. Drandakis',
-    progessionLabel: 'Licensed Attorney | Specializing in Corporate & Civil Law',
-    bioHeaderLabel: 'Hello,',
-    bioBodyLabel: 'I Adnreaw and am a licensed attorney with over 10 years of experience in corporate and civil law. My expertise includes corporate governance, contract law, and dispute resolution. I am committed to providing my clients with the highest level of legal service and support.',
+    progessionLabel: 'Lawyer | Specializing in Civil & Corporate Law',
+    bioHeaderLabel: 'Welcome,',
+    bioBodyLabel: 'With solid expertise and professional experience, our law office offers high-quality legal services across a broad range of legal fields. With excellent command of German and English, guided by our clients’ best interests and a strong sense of professionalism, our goal is to protect your rights by providing effective, tailored solutions for each individual case.',
     servicesLabel: 'Services',
     servicesDetailsLabel: 'Click on a bubble to see more details',
     
@@ -38,9 +38,9 @@ export const MainPageContentEN = {
 
 export const MainPageContentGR = {
     nameLabel: 'Ανδρέας Ν. Δρανδάκης',
-    progessionLabel: 'Δικηγόρος | Ειδικός στο Εταιρικό & Πολιτικό Δίκαιο',
-    bioHeaderLabel: 'Γειά σας,',
-    bioBodyLabel: 'Είμαι ο Ανδρέας, δικηγόρος με άδεια άσκησης επαγγέλματος και πάνω από 10 χρόνια εμπειρίας στο εταιρικό και πολιτικό δίκαιο. Η εξειδίκευσή μου περιλαμβάνει εταιρική διακυβέρνηση, δίκαιο συμβάσεων και επίλυση διαφορών. Δεσμεύομαι να παρέχω στους πελάτες μου την υψηλότερη ποιότητα νομικών υπηρεσιών και υποστήριξης.',
+    progessionLabel: 'Δικηγόρος | Ειδικός στο Αστικό &amp; Εταιρικό Δίκαιο',
+    bioHeaderLabel: 'Καλώς ήρθατε,',
+    bioBodyLabel: 'Με άρτια κατάρτιση και επαγγελματική εμπειρία, το γραφείο μας παρέχει νομικές υπηρεσίες υψηλού επιπέδου σε ευρύ φάσμα του δικαίου. Πάντα με γνώμονα το συμφέρον του πελάτη και επαγγελματισμό, στόχος μας είναι η προάσπιση των δικαιωμάτων σας, παρέχοντας αποτελεσματικές λύσεις προσαρμοσμένες στις ανάγκες κάθε υπόθεσης.',
     servicesLabel: 'Υπηρεσίες',
     servicesDetailsLabel: 'Κάντε κλικ σε μια φυσαλίδα για να δείτε περισσότερες λεπτομέρειες',
     

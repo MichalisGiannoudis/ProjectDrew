@@ -4,28 +4,28 @@ export const MilestonesEN: MilestoneContent = {
     milestones: [
         {
             yearLabel: '2015',
-            titleLabel: "University",
-            descriptionLabel: "Got accepted into Aristotle University of Thessaloniki."
+            titleLabel: 'Bachelor of Laws',
+            descriptionLabel: 'Studied at the Faculty of Law, Aristotle University of Thessaloniki. Graduated with the grade “Excellent”. 1 st among the graduates of 2019.'
         },
         {
             yearLabel: '2019',
-            titleLabel: "University Graduation",
-            descriptionLabel: "Graduated from the Law School of Aristotle University of Thessaloniki, with cum laude honors."
+            titleLabel: 'Legal Traineeship',
+            descriptionLabel: 'Trainee at the law office of Associate Professor of Law at Aristotle University of Thessaloniki, Nikolaos Eleftheriadis.'
         },
         {
             yearLabel: '2020',
-            titleLabel: "Law Training",
-            descriptionLabel: "Fully trained in the legal profession, completing a rigorous training program with Pr. Konstantinos Koutoupis."
+            titleLabel: 'Scholarship',
+            descriptionLabel: 'Full scholarship from the German Academic Exchange Service (DAAD) for postgraduate studies in Germany.'
+        },
+        {
+            yearLabel: '2020',
+            titleLabel: 'Master’s Degree (LL.M.)',
+            descriptionLabel: 'Postgraduate studies at the Faculty of Law, Ludwig Maximilian University of Munich (LMU München) in Civil Law. Graduated with the grade “Excellent”.'
         },
         {
             yearLabel: '2021',
-            titleLabel: "Master's Degree",
-            descriptionLabel: "Got accepted into the prestigious Master's program in Civil Law and at the University of Munich, Germany."
-        },
-        {
-            yearLabel: '2023',
-            titleLabel: "Early Career",
-            descriptionLabel: "Started my career as a legal advisor, specializing in civil law and intellectual property rights."
+            titleLabel: 'Bar Exam License',
+            descriptionLabel: 'Success in the exams and acquisition of the license to practice as a lawyer.'
         }
     ]
 };
@@ -34,28 +34,28 @@ export const MilestonesGR: MilestoneContent = {
     milestones: [
         {
             yearLabel: '2015',
-            titleLabel: 'Πανεπιστήμιο',
-            descriptionLabel: "Εισαγωγή στο Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης"
+            titleLabel: 'Βασικές σπουδές',
+            descriptionLabel: 'Προπτυχιακές σπουδές στη Νομική Σχολή του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης. Αποφοίτηση με βαθμό «Άριστα». 1 η θέση ανάμεσα στους αποφοίτους του έτους 2019.'
         },
         {
             yearLabel: '2019',
-            titleLabel: 'Αποφοίτηση Πανεπιστημίου',
-            descriptionLabel: 'Αποφοίτηση από τη Νομική Σχολή του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, με άριστα.'
+            titleLabel: 'Δικηγορική άσκηση',
+            descriptionLabel: 'Άσκηση στο γραφείο του αναπληρωτή καθηγητή ΝομικήςΑΠΘ Νικόλαου Ελευθεριάδη.'
         },
         {
             yearLabel: '2020',
-            titleLabel: 'Εκπαίδευση Δικηγόρου',
-            descriptionLabel: 'Πλήρης εκπαίδευση στο επάγγελμα του δικηγόρου, ολοκληρώνοντας ένα πρόγραμμα εκπαίδευσης με τον Καθηγητή Κωνσταντίνο Κουτούπη.'
+            titleLabel: 'Υποτροφία',
+            descriptionLabel: 'Πλήρης υποτροφία της Γερμανικής Υπηρεσίας ΑκαδημαϊκώνΑνταλλαγών (DAAD) για μεταπτυχιακές σπουδές στη Γερμανία.'
         },
         {
-            yearLabel: '2021',
-            titleLabel: 'Μεταπτυχιακό',
-            descriptionLabel: 'Εισαγωγή στο μεταπτυχιακό πρόγραμμα Πολιτικού Δικαίου στο Πανεπιστήμιο του Μονάχου, Γερμανία.'
+            yearLabel: '2020',
+            titleLabel: 'Μεταπτυχιακό (LL.M.)',
+            descriptionLabel: 'Μεταπτυχιακές σπουδές στη Νομική Σχολή του Πανεπιστημίου του Μονάχου (LMU München) πάνω στο αστικό δίκαιο. Αποφοίτηση με βαθμό «Άριστα».'
         },
         {
             yearLabel: '2023',
-            titleLabel: 'Πρώιμη Καριέρα',
-            descriptionLabel: 'Έναρξη καριέρας ως νομικός σύμβουλος, με εξειδίκευση στο αστικό δίκαιο και τα δικαιώματα πνευματικής ιδιοκτησίας.'
+            titleLabel: 'Άδεια ασκήσεως δικηγορίας',
+            descriptionLabel: 'Επιτυχία στις σχετικές εξετάσεις και απόκτηση άδειας ασκήσεως του επαγγέλματος του Δικηγόρου.'
         }
     ]
 };
