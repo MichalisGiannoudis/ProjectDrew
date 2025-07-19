@@ -55,7 +55,6 @@ export const Services = () => {
             <div className="hidden md:flex justify-center items-center mb-12">
                 <div className="relative w-[90%] h-[65svh]">
                     <div className="absolute inset-0 flex items-center justify-center">
-                        {/* <div className={`w-220 h-180 absolute bg-slate-800/80 rounded-full border border-slate-300 p-8 overflow-hidden transition-all duration-300`}></div> */}
                         <div className={`absolute bg-white rounded-full border border-slate-300 p-8 overflow-hidden transition-all duration-300`}
                             style={{
                                 zIndex: 5,
@@ -102,7 +101,6 @@ export const Services = () => {
                             )}
                         </div>
                         
-                        {/* Service Bubbles */}
                         <div className="absolute inset-0" style={{ zIndex: 10 }}>
                             {services.map((service, index) => {
                                 const isActive = activeService === service.id;
@@ -131,8 +129,7 @@ export const Services = () => {
                                             animationDelay: `${index * 0.1}s`
                                         }}
                                     >
-                                        <div 
-                                            className={`
+                                        <div className={`
                                                 w-36 h-36 rounded-full flex flex-col items-center justify-center
                                                 transition-all duration-500 ease-in-out
                                                 ${isActive 
@@ -140,8 +137,7 @@ export const Services = () => {
                                                     : 'bg-white hover:from-slate-200/80 hover:to-slate-300/80 shadow-lg hover:shadow-xl border-1 border-slate-500'
                                                 }
                                                 ${!isActive && activeService ? 'opacity-50' : 'opacity-100'}
-                                                hover:scale-110 group`}
-                                        >
+                                                hover:scale-110 group`}>
                                             <div className="flex flex-col items-center space-y-2">
                                                 <img src={service.image} className={`w-10 h-10 object-contain transition-all duration-300 ${isActive ? 'filter brightness-0 invert' : ''}`}/>
                                                 <span className={`text-sm font-bold text-center leading-tight transition-all duration-300 ${isActive ? 'text-white' : 'text-slate-700'}`}>
@@ -157,7 +153,6 @@ export const Services = () => {
                 </div>
             </div>
 
-            {/* Mobile Layout */}
             <div className="md:hidden space-y-4">
                 {services.map((service) => (
                     <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
@@ -178,7 +173,6 @@ export const Services = () => {
                             </div>
                         </div>
 
-                        {/* Expandable Content */}
                         <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedMobile === service.id ? 'max-h-120 opacity-100' : 'max-h-0 opacity-0'}`}>
                             <div className="px-6 pb-6 space-y-3">
                                 {service.body.split(',').map((option, idx) => (

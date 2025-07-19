@@ -42,21 +42,55 @@ export const ServicesHorizontal = () => {
                 </div>
             </div>
 
-            {/* Desktop Layout */}
             <div className="hidden lg:block">
                 <div className="grid grid-cols-3 gap-15 w-[80%] mx-auto px-4">
-                    {services.map((service) => (
-                        <ServiceCard 
-                            key={service.id}
-                            serviceImage={service.image}
-                            serviceLabel={service.label}
-                            serviceBody={service.body}
-                        />
+                    {services.slice(0, 5).map((service) => (
+                        <ServiceCard key={service.id} serviceImage={service.image} serviceLabel={service.label} serviceBody={service.body}/>
                     ))}
+                    {services.length > 5 && (
+                        <div className="relative">
+                            <div className="bg-white flex flex-col rounded-lg shadow-lg p-8 pt-12 text-center hover:shadow-2xl transition-shadow duration-300 lg:h-85">
+                                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
+                                    <div className="w-20 h-20 bg-slate-200 rounded-full border border-slate-500 flex items-center justify-center p-3">
+                                        <img src={services[5].image} className="w-full h-full p-2 object-contain"/>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex flex-col space-y-4">
+                                    <div>
+                                        <h3 className="text-xl font-semibold text-slate-800 cursor-default mb-3">{services[5].label}</h3>
+                                        <div className="flex flex-wrap gap-2 justify-center mb-4">
+                                            {services[5].body.split(',').map((option, idx) => (
+                                                <div key={idx} className="inline-block max-w-full">
+                                                    <div className="bg-slate-200 text-slate-800 text-sm font-medium px-3 py-2 rounded-3xl cursor-default break-words">
+                                                        {option.trim()}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <hr className="border-t border-slate-300 w-3/4 mx-auto" />
+                                    {services.length > 6 && (
+                                        <div>
+                                            <h3 className="text-xl font-semibold text-slate-800 cursor-default mb-3">{services[6].label}</h3>
+                                            <div className="flex flex-wrap gap-2 justify-center">
+                                                {services[6].body.split(',').map((option, idx) => (
+                                                    <div key={idx} className="inline-block max-w-full">
+                                                        <div className="bg-slate-200 text-slate-800 text-sm font-medium px-3 py-2 rounded-3xl cursor-default break-words">
+                                                            {option.trim()}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
-            {/* Tablet Layout */}
             <div className="hidden md:block lg:hidden space-y-4">
                 {services.map((service) => (
                     <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
@@ -77,7 +111,6 @@ export const ServicesHorizontal = () => {
                             </div>
                         </div>
 
-                        {/* Expandable Content */}
                         <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedMobile === service.id ? 'max-h-120 opacity-100' : 'max-h-0 opacity-0'}`}>
                             <div className="px-6 pb-6 space-y-3">
                                 {service.body.split(',').map((option, idx) => (
@@ -96,7 +129,6 @@ export const ServicesHorizontal = () => {
                 ))}
             </div>
 
-            {/* Mobile Layout */}
             <div className="md:hidden space-y-4">
                 {services.map((service) => (
                     <div key={service.id} className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
@@ -117,7 +149,6 @@ export const ServicesHorizontal = () => {
                             </div>
                         </div>
 
-                        {/* Expandable Content */}
                         <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedMobile === service.id ? 'max-h-120 opacity-100' : 'max-h-0 opacity-0'}`}>
                             <div className="px-6 pb-6 space-y-3">
                                 {service.body.split(',').map((option, idx) => (
