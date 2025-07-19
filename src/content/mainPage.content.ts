@@ -34,6 +34,9 @@ export const MainPageContentEN = {
     contactMessagePlaceholder: 'I contant you, for ....',
     contactSendLabel: 'Αποστολή Μηνύματος',
     contactSendingLabel: 'Sending...',
+
+    contactEmail: 'drandakis.a@gmail.com',
+    contactPhone: '+3069 7158 7371',
 }
 
 export const MainPageContentGR = {
@@ -72,4 +75,7 @@ export const MainPageContentGR = {
     contactMessagePlaceholder: 'Επικοινωνώ μαζί σας, για ....',
     contactSendLabel: 'Αποστολή Μηνύματος',
     contactSendingLabel: 'Αποστολή...',
+
+    contactEmail: 'drandakis.a@gmail.com',
+    contactPhone: '69 7158 7371',
 }

@@ -47,6 +47,8 @@ export interface MainPageContent{
     contactMessagePlaceholder: string,
     contactSendLabel: string;
     contactSendingLabel: string;
+    contactEmail: string;
+    contactPhone: string;
 }
 
 export interface MilestoneContent {
